@@ -49,63 +49,89 @@ table {
 
 /* =Structure
 ----------------------------------------------- */
-#bg-content {
-	background: transparent url(../home-assets/uja-girl-bg.jpg) top center no-repeat;
+#wrap-container {
+	/*position:relative;*/
+	height:902px;
+	overflow:hidden;
+}
+	#bg-container {
+		height:515px;
+		background: transparent url(../home-assets/uja-girl-bg.jpg) top center no-repeat;
+	}
+		#over-bg {
+			height:inherit;
+			background: transparent url(../images/core/over-bg.png) top center repeat-x;
+		}
+	#content {
+		position:relative;
+		top:-515px;
+		width:940px;
+		margin:0 auto;
+		padding: 0 31px 22px 27px;
+		background: transparent url(../images/core/cont-bg.png) no-repeat bottom center;
+	}
+	
+		#add-box {
+			position:relative;
+			top:0;
+			left:640px;
+			width:252px;
+			height:160px;
+			padding:42px 16px 50px 30px;
+			background:#0099cc url(../home-assets/uja-bluecrowd-thumb.jpg) top center no-repeat;
+		}
+		#nav-box {
+			position:relative;
+			top:0;
+			left:0px;
+			width:600px;
+			height:60px;
+			padding:10px;
+			margin:20px 0;
+			background-color:rgba(255, 255, 255, 0.5);
+		}
+		#find-help ,
+		#donate {
+			position:absolute;
+			top:272px;
+			width:140px;
+			height:80px;
+			color:#ffffff;
+		}
+		#find-help {
+			background-color:#d95934;
+			left:667px;
+		}
+		#donate {
+			background-color:#e18a19;
+			left:827px;
+		}
+		div.page-col {
+			float:left;
+			width:217px;
+			height:509px;
+			border:1px solid gray;
+			margin-right:20px;
+		}
+#footer{
+	/*position:relative;*/
+	width:940px;
+	margin:23px auto;
+	padding: 22px  31px 27px;
+	overflow:hidden;
+	background: transparent url(../images/core/doc-tile.png) repeat-y top center;
 }
 
-#content {
-	width:940px;
-	margin:0 auto;
-	position:relative;
-}
-#you-uja {
-	position:relative;
-	top:0;
-	left:640px;
-	width:252px;
-	height:160px;
-	padding:42px 16px 50px 30px;
-	background:#0099cc url(../home-assets/uja-bluecrowd-thumb.jpg) top center no-repeat;
-}
-#nav-box {
-	position:relative;
-	top:0;
-	left:0px;
-	width:600px;
-	height:60px;
-	padding:10px;
-	margin:20px 0;
-	background-color:rgba(255, 255, 255, 0.5);
-}
-#find-help ,
-#donate {
-	position:absolute;
-	top:272px;
-	width:140px;
-	height:80px;
-	color:#ffffff;
-}
-#find-help {
-	background-color:#d95934;
-	left:640px;
-}
-#donate {
-	background-color:#e18a19;
-	left:800px;
-}
-div.page-r {
-	float:left;
-	width:217px;
-	height:509px;
-	border:1px solid gray;
-	margin-right:20px;
-}
-div.page-r.last {
-	margin-right:0;
-}
-div.clear-last {
-	clear:left;
-}
-#footer{
-	clear:left;
-}
+	div.foot-col {
+		width:150px;
+		float:left;
+		margin-right:6px;
+	}
+	
+	
+		div.last {
+			margin-right:0;
+		}
+		div.clear-float {
+			clear:left;
+		}
