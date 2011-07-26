@@ -56,7 +56,21 @@ table {
 }
 	#bg-container {
 		height:515px;
-		background: transparent url(../home-assets/uja-girl-bg.jpg) top center no-repeat;
+		background-color:transparent;
+		background-position:50% 0%;
+		background-repeat:no-repeat;
+	}
+	#bg-container.home1 {
+		background-image: url(../home-assets/uja-girl-bg.jpg);
+	}
+	#bg-container.home2 {
+		background-image: url(../home-assets/uja-oldexercise-bw-bg.jpg);
+	}
+	#bg-container.home3 {
+		background-image: url(../home-assets/uja-girl-bw-bg.jpg);
+	}
+	#bg-container.home4 {
+		background-image: url(../home-assets/uja-oldexercise-bg.jpg);
 	}
 		#over-bg {
 			height:inherit;
@@ -74,21 +88,35 @@ table {
 		#add-box {
 			position:relative;
 			top:0;
-			left:640px;
-			width:252px;
+			left:0;
+			/*left:640px;*/
+			/*width:252px;*/
+			padding-left:640px;
+		}
+		#add-box div{
 			height:160px;
 			padding:42px 16px 50px 30px;
-			background:#0099cc url(../home-assets/uja-bluecrowd-thumb.jpg) top center no-repeat;
+			background:transparent url(../home-assets/uja-bluecrowd-thumb.jpg) top center no-repeat;
 		}
 		#nav-box {
 			position:relative;
 			top:0;
 			left:0px;
-			width:600px;
+			width:475px;
 			height:60px;
-			padding:10px;
+			padding:10px 135px 10px 10px;
 			margin:20px 0;
 			background-color:rgba(255, 255, 255, 0.5);
+		}
+		#slide-nav {
+			position:absolute;
+			bottom:10px;
+			right:10px;
+			/*width:135px;*/
+		}
+		#slide-nav li{
+			float:left;
+			padding:5px;
 		}
 		#find-help ,
 		#donate {
@@ -114,9 +142,10 @@ table {
 			margin-right:20px;
 		}
 #footer{
-	/*position:relative;*/
+	position:relative;
+	top:23px;
 	width:940px;
-	margin:23px auto;
+	margin:0 auto;
 	padding: 22px  31px 27px;
 	overflow:hidden;
 	background: transparent url(../images/core/doc-tile.png) repeat-y top center;

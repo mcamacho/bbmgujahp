@@ -10,22 +10,32 @@
     
     <script src="http://code.jquery.com/jquery.min.js" type="text/javascript" ></script>
     
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
+    
+    <!--[if IE 6]>
+    <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>
+        DD_belatedPNG.fix('.m,#over-bg,#content,#footer');
+    </script>
+    <![endif]-->
+    
     <!--elements loaded to display actual items: header, menu and background-->
     <link rel="stylesheet" type="text/css" href="css/temp-layout.css" />
     <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/primary_nav.css" />
     <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/yui/fonts.css" />
     <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/tracking/css/survey.css" />
-    <script type="text/javascript" src="http://www.ujafedny.org/tracking/js/survey.js" ></script>
-    <script type="text/javascript" src="http://www.ujafedny.org/themes/ujafny/js/cufon-yui.js" ></script>
+    <!--<script type="text/javascript" src="http://www.ujafedny.org/tracking/js/survey.js" ></script>-->
+    <!--<script type="text/javascript" src="http://www.ujafedny.org/themes/ujafny/js/cufon-yui.js" ></script>-->
     
-    <!--<script type="text/javascript" src="http://www.ujafedny.org/themes/ujafny/js/jsmin.js"></script>-->
     <script type="text/javascript">
     //<![CDATA[
-    var surveyOptions = [];
-    surveyOptions.excluded = false;
-    surveyOptions.autoSlide = true;
-    surveyOptions.state = 'minimized';
-    surveyOptions.surveyID = 46913;
+    //var surveyOptions = [];
+    //surveyOptions.excluded = false;
+    //surveyOptions.autoSlide = true;
+    //surveyOptions.state = 'minimized';
+    //surveyOptions.surveyID = 46913;
     //]]>
     </script>
     <!-- actual js and css for actual items-->
@@ -38,21 +48,27 @@
             <script type="text/javascript" src="header.js" ></script>  
         </div>
         <div id="primary">
-            <script type="text/javascript" src="primary.js" ></script>  
+            <!--<script type="text/javascript" src="primary.js" ></script>  -->
         </div>
     </div>
     <!--end actual content-->
     
     <div id="wrap-container">
-        <div id="bg-container">
+        <div id="bg-container" class="home1">
             <div id="over-bg"></div>
         </div>
         <div id="content">
-            <div id="add-box"><p>YOU</p><p>+ UJA</p><p>GOOD</p><p>TOGETHER</p></div>
+            <div id="add-box"><div><p>YOU</p><p>+ UJA</p><p>GOOD</p><p>TOGETHER</p></div></div>
             <div id="control-box">
                 <div id="nav-box">
                     <h1>Sustainable summer fun</h1>
                     <h2>+ UJA</h2>
+                    <ul id="slide-nav">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
                 </div>
                 <div id="find-help"><p>FIND HELP</p></div>
                 <div id="donate"><p>DONATE</p></div>
@@ -119,6 +135,8 @@
         <div class="clear-float"></div>
     </div>
     <!--end footer-->
+    
+    <script type="text/javascript" src="js/home.js" ></script>
     
     <!--elements loaded to display actual items: header, menu and background-->
     <script type="text/javascript">
