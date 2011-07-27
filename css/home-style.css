@@ -50,9 +50,9 @@ table {
 /* =Structure
 ----------------------------------------------- */
 #wrap-container {
-	/*position:relative;*/
 	height:902px;
 	overflow:hidden;
+	/*border:1px solid red;*/
 }
 	#bg-container {
 		height:515px;
@@ -89,8 +89,6 @@ table {
 			position:relative;
 			top:0;
 			left:0;
-			/*left:640px;*/
-			/*width:252px;*/
 			padding-left:640px;
 		}
 		#add-box div{
@@ -112,11 +110,13 @@ table {
 			position:absolute;
 			bottom:10px;
 			right:10px;
-			/*width:135px;*/
 		}
 		#slide-nav li{
 			float:left;
 			padding:5px;
+		}
+		#slide-nav li.selected{
+			font-weight:bold;
 		}
 		#find-help ,
 		#donate {
@@ -134,21 +134,83 @@ table {
 			background-color:#e18a19;
 			left:827px;
 		}
+		#column-boxes {
+			width:100%;
+			overflow:hidden;
+		}
 		div.page-col {
 			float:left;
-			width:217px;
+			width:220px;
 			height:509px;
-			border:1px solid gray;
 			margin-right:20px;
+			font-size:11px;
+		}
+		div.col-about {
+			color:#eeeeee;
+			background-color:#2280B2;
+			padding:9px;
+			height:54px;
+		}
+		div.col-about h2 {
+			line-height:21px;
+			font-size:17px;
+		}
+		div.col-content {
+			border:1px solid #2280B2;
+			border-width:0 1px;
+			padding:9px;
+			width:200px;
+			overflow:hidden;
+			background-color:#ffffff;
+		}
+		div.col-content > img {
+			height:130px;
+		}
+		div.col-content > h3 {
+			font-size:14px;
+			padding:8px 0;
+			color:#00538e;
+		}
+		div.col-content div.col-social {
+			padding:9px 0;
+		}
+		div.col-content a.link-box1,
+		div.col-content a.link-box2 {
+			font-size:14px;
+			display:block;
+			padding:0 4px;
+		}
+		div.col-content a.link-box1 {
+			height:56px;
+			line-height:56px;
+			border:1px solid #b2e6f2;
+		}
+		div.col-content a.link-box2 {
+			margin:10px 0;
+			height:36px;
+			line-height:36px;
+			background-color:#fdb827;
+		}
+		div.col-more {
+			background-color:#2280B2;
+			padding:9px;
+			height:22px;
+		}
+		div.col-more a {
+			font-size:14px;
+			color:#eeeeee;
+			line-height:22px;
+			text-decoration:none;
 		}
 #footer{
 	position:relative;
 	top:23px;
+	overflow:hidden;
 	width:940px;
 	margin:0 auto;
 	padding: 22px  31px 27px;
-	overflow:hidden;
 	background: transparent url(../images/core/doc-tile.png) repeat-y top center;
+	/*border:1px solid red;*/
 }
 
 	div.foot-col {
@@ -157,10 +219,10 @@ table {
 		margin-right:6px;
 	}
 	
-	
+		
 		div.last {
 			margin-right:0;
 		}
-		div.clear-float {
-			clear:left;
+		div.no-visible {
+			display:none;
 		}

@@ -7,13 +7,16 @@
     <title>Home &raquo; UJA-Federation of New York</title>
     
     <link rel="stylesheet" type="text/css" href="css/home-style.css" />
+    <link media="screen" rel="stylesheet" href="css/colorbox.css" />
     
     <script src="http://code.jquery.com/jquery.min.js" type="text/javascript" ></script>
+    <script src="js/jquery.colorbox-min.js"></script>
     
     <!--[if lte IE 8]>
     <link rel="stylesheet" type="text/css" href="css/ie.css" />
     <![endif]-->
     
+    <!--alternative to this js is http://allinthehead.com/retro/338/supersleight jquery plugin-->
     <!--[if IE 6]>
     <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>
@@ -25,7 +28,8 @@
     <link rel="stylesheet" type="text/css" href="css/temp-layout.css" />
     <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/primary_nav.css" />
     <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/yui/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/tracking/css/survey.css" />
+    <!--<link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/tracking/css/survey.css" />-->
+    
     <!--<script type="text/javascript" src="http://www.ujafedny.org/tracking/js/survey.js" ></script>-->
     <!--<script type="text/javascript" src="http://www.ujafedny.org/themes/ujafny/js/cufon-yui.js" ></script>-->
     
@@ -61,31 +65,97 @@
             <div id="add-box"><div><p>YOU</p><p>+ UJA</p><p>GOOD</p><p>TOGETHER</p></div></div>
             <div id="control-box">
                 <div id="nav-box">
-                    <h1>Sustainable summer fun</h1>
-                    <h2>+ UJA</h2>
+                    <h2>Title</h2>
+                    <h3>Subtitle</h3>
                     <ul id="slide-nav">
-                        <li>1</li>
+                        <li class="navigator">&#60</li>
+                        <li class="selected">1</li>
                         <li>2</li>
                         <li>3</li>
                         <li>4</li>
+                        <li class="navigator">&#62</li>
                     </ul>
                 </div>
                 <div id="find-help"><p>FIND HELP</p></div>
                 <div id="donate"><p>DONATE</p></div>
             </div>
             <div id="column-boxes">
-                <div class="page-col"><p>What we do</p></div>
-                <div class="page-col"><p>What's new</p></div>
-                <div class="page-col"><p>Join Us</p></div>
-                <div class="page-col last"><p>Featured events</p></div>
-                <div class="clear-float"></div>
+                <div class="page-col">
+                    <div class="col-about">
+                        <h2>What we do</h2>
+                        <p>Learn more about who we help and why you and UJA are good together.</p>
+                    </div>
+                    <div class="col-content">
+                        <img src="home-assets/uja-boy-thumb.jpg" alt="autism help" />
+                        <h3>Designing Solutions for Families with Autism</h3>
+                        <p>Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.</p>
+                        <div class="col-social"><span class="fb-like">Like</span><span class="tt-tweet">Tweet</span></div>
+                        <a class="link-box1">Where Your Donation Goes</a>
+                        <a class="link-box2">TELL US WHAT YOU THINK</a>
+                    </div>
+                    <div class="col-more">
+                        <a href="" title="Learn More">Learn More</a>
+                    </div>
+                </div>
+                <div class="page-col">
+                    <div class="col-about">
+                        <h2>What's new</h2>
+                        <p>Learn more about who we help and why you and UJA are good together.</p>
+                    </div>
+                    <div class="col-content">
+                        <img src="home-assets/uja-boy-thumb.jpg" alt="autism help" />
+                        <h3>Designing Solutions for Families with Autism</h3>
+                        <p>Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.</p>
+                        <div class="col-social"><span class="fb-like">Like</span><span class="tt-tweet">Tweet</span></div>
+                        <a class="link-box1">Where Your Donation Goes</a>
+                        <a class="link-box2">TELL US WHAT YOU THINK</a>
+                    </div>
+                    <div class="col-more">
+                        <a href="" title="Learn More">Learn More</a>
+                    </div>
+                </div>
+                <div class="page-col">
+                    <div class="col-about">
+                        <h2>Join Us</h2>
+                        <p>Learn more about who we help and why you and UJA are good together.</p>
+                    </div>
+                    <div class="col-content">
+                        <img src="home-assets/uja-boy-thumb.jpg" alt="autism help" />
+                        <h3>Designing Solutions for Families with Autism</h3>
+                        <p>Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.</p>
+                        <div class="col-social"><span class="fb-like">Like</span><span class="tt-tweet">Tweet</span></div>
+                        <a class="link-box1">Where Your Donation Goes</a>
+                        <a class="link-box2">TELL US WHAT YOU THINK</a>
+                    </div>
+                    <div class="col-more">
+                        <a href="" title="Learn More">Learn More</a>
+                    </div>
+                </div>
+                <div class="page-col last">
+                    <div class="col-about">
+                        <h2>Featured Events</h2>
+                        <p>Learn more about who we help and why you and UJA are good together.</p>
+                    </div>
+                    <div class="col-content">
+                        <img src="home-assets/uja-boy-thumb.jpg" alt="autism help" />
+                        <h3>Designing Solutions for Families with Autism</h3>
+                        <p>Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.</p>
+                        <div class="col-social"><span class="fb-like">Like</span><span class="tt-tweet">Tweet</span></div>
+                        <a class="link-box1">Where Your Donation Goes</a>
+                        <a class="link-box2">TELL US WHAT YOU THINK</a>
+                    </div>
+                    <div class="col-more">
+                        <a href="" title="Learn More">Learn More</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <!--end wrap container-->
+    
     <div id="footer">
         <div class="foot-col">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <ul>
                 <li>Caring</li>
                 <li>Caring</li>
@@ -93,7 +163,7 @@
             </ul>
         </div>
         <div class="foot-col">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <ul>
                 <li>Caring</li>
                 <li>Caring</li>
@@ -101,7 +171,7 @@
             </ul>
         </div>
         <div class="foot-col">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <ul>
                 <li>Caring</li>
                 <li>Caring</li>
@@ -109,7 +179,7 @@
             </ul>
         </div>
         <div class="foot-col">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <ul>
                 <li>Caring</li>
                 <li>Caring</li>
@@ -117,7 +187,7 @@
             </ul>
         </div>
         <div class="foot-col">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <ul>
                 <li>Caring</li>
                 <li>Caring</li>
@@ -125,16 +195,25 @@
             </ul>
         </div>
         <div class="foot-col last">
-            <h1>What we do</h1>
+            <h2>What we do</h2>
             <ul>
                 <li>Caring</li>
                 <li>Caring</li>
                 <li>Caring</li>
             </ul>
         </div>
-        <div class="clear-float"></div>
     </div>
     <!--end footer-->
+    
+    <div class="no-visible">
+        <form id="basic-form" action="" method="post" >
+            <fieldset>
+                <legend>Form Data</legend>
+                <label for="name">Name: </label><input id="name" type="text" size="25" name="name" />
+                <label for="email">E-mail: </label><input id="email" type="text" size="25" name="email" />
+            </fieldset>
+        </form>
+    </div>
     
     <script type="text/javascript" src="js/home.js" ></script>
     
