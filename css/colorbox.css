@@ -2,7 +2,7 @@
     ColorBox Core Style:
     The following CSS is consistent between example themes and should not be altered.
 */
-#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; /*overflow:hidden;*/overflow:visible;}
 #cboxOverlay{position:fixed; width:100%; height:100%;}
 #cboxMiddleLeft, #cboxBottomLeft{clear:left;}
 #cboxContent{position:relative;}
@@ -23,7 +23,7 @@
     #cboxContent{margin-top:20px;}
         #cboxError{padding:50px; border:1px solid #ccc;}
         #cboxLoadedContent{border:5px solid #000; background:#fff;}
-        #cboxTitle{position:absolute; top:-20px; left:0; color:#ccc;}
+        #cboxTitle{position:absolute; /*top:-20px;*/bottom:-20px; left:0; color:#ccc;}
         #cboxCurrent{position:absolute; top:-20px; right:0px; color:#ccc;}
         #cboxSlideshow{position:absolute; top:-20px; right:90px; color:#fff;}
         #cboxPrevious{position:absolute; top:50%; left:5px; margin-top:-32px; background:url(images/controls.png) no-repeat top left; width:28px; height:65px; text-indent:-9999px;}
