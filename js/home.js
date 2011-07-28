@@ -1,20 +1,30 @@
 
 var imagset = {"images": [
-        {"uri": "ome-assets/uja-girl-bg.jpg", "title": "Girl Writting", "subtitle": "Subtitle for Image One"},
+        {"uri": "uja-girl-bg.jpg", "title": "Girl Writting", "subtitle": "Subtitle for Image One"},
         {"uri": "uja-oldexercise-bw-bg.jpg", "title": "All make exercise", "subtitle": "Subtitle for Image two"},
-        {"uri": "ome-assets/uja-girl-bw-bg.jpg", "title": "Another Girl", "subtitle": "Subtitle for Image tree"},
+        {"uri": "uja-girl-bw-bg.jpg", "title": "Another Girl", "subtitle": "Subtitle for Image tree"},
         {"uri": "uja-oldexercise-bg.jpg", "title": "It's so funny", "subtitle": "Subtitle for Image Four"}
     ]
 };
 
-
-
 var rotate_int;//variable that receives the setinterval return
 var button_index = 0;//variable that receives the index button
+var imgpreload;
+//prelaod images
+(function() {
+        var pathAbbrev = imagset.images;
+        imgpreload = new Image();
+        var qtt = pathAbbrev.length;
+        for(i=0;i<qtt;i++){
+                imgpreload.src = 'home-assets/'+pathAbbrev[i].uri;
+        }
+})();
 
-jQuery(function () {
+
+//jquery function that initiates when html is loaded
+jQuery(function () {console.log('html ready');
         //Load the slideshow
-        rotate_int= setInterval('rotate()', 5000);
+        //rotate_int= setInterval('rotate()', 5000);
         
         //set bg-container interactivity
         jQuery('#add-box').click(loadExt).css('cursor', 'pointer');

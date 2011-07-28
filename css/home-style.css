@@ -163,10 +163,10 @@ table {
 			overflow:hidden;
 			background-color:#ffffff;
 		}
-		div.col-content > img {
+		div.col-content img {
 			height:130px;
 		}
-		div.col-content > h3 {
+		div.col-content h3 {
 			font-size:14px;
 			padding:8px 0;
 			color:#00538e;
