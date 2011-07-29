@@ -34,6 +34,9 @@ jQuery(function () {
         
         //set bg-container interactivity
         jQuery('#add-box').click(loadExt).css('cursor', 'pointer');
+        
+        //add interaction to the tell us button
+        jQuery(".link-box2").colorbox({width:"50%", inline:true, href:"#basic-form"});
 });
 
 function cssInit() {
@@ -52,24 +55,29 @@ function cssInit() {
 }
 function navInit() {
         //construct the html
-        jQuery('<li class="navigator">&#60</li>')
-                .appendTo('#slide-nav')
-                .click('backward', rotControl)
-                .css('cursor', 'pointer');
+        element = jQuery('<li></li>')
+                .appendTo('#slide-nav');
+        jQuery('<a href="" class="navigator back">&#60</a>')
+                .appendTo(element)
+                .click({direction:'backward'}, rotControl);
         for (t in jsonAbbrev){
-                jQuery('<li>o</li>')
-                        .appendTo('#slide-nav')
-                        .click({classto:'home' + t, button:t}, rotation)
-                        .css('cursor', 'pointer');
+                element = jQuery('<li></li>')
+                        .appendTo('#slide-nav');
+                jQuery('<a href="" class="button">O</a>')
+                        .appendTo(element)
+                        .click({classto:'home' + t, button:t}, rotation);
         }
-        jQuery('<li class="navigator">&#62</li>')
-                .appendTo('#slide-nav')
-                .click('foreward', rotControl)
-                .css('cursor', 'pointer');
+        element = jQuery('<li></li>')
+                .appendTo('#slide-nav');
+        jQuery('<a href="" class="navigator fore">&#62</a>')
+                .appendTo(element)
+                .click({direction:'foreward'}, rotControl);
         
         //add class 'selected' to first li of the nav
-        jQuery('#slide-nav li[class!=navigator]:eq(0)').addClass('selected');
-        
+        jQuery('#slide-nav a.button:eq(0)').addClass('selected');
+        jQuery('#slide-nav a').click(function(event){event.preventDefault();});
+        jQuery('#slide-nav a.navigator').hover( function () {$(this).addClass("hover");},
+                                                function () {$(this).removeClass("hover");});
 }
 
 function navText(index){
@@ -97,19 +105,19 @@ function bgClass(oldclass, newclass){
 function interButton(linum){
         button_index = linum;
         navText(linum);
-        jQuery('#slide-nav li[class*=selected]').removeClass('selected');
-        jQuery('#slide-nav li[class!=navigator]:eq('+linum+')').addClass('selected');
+        jQuery('#slide-nav a.selected').removeClass('selected');
+        jQuery('#slide-nav a.button:eq('+linum+')').addClass('selected');
 }
 
 //call each time a direction button is clicked
-function rotControl(direction){
+function rotControl(dir){
         maxelement = totalImages - 1;
         back_class = button_index==0 ? 'home' + maxelement : 'home'+ (button_index-1);
         back_index = button_index==0 ? maxelement : (button_index-1);
         fore_class = button_index==maxelement ? 'home0' : 'home'+(button_index+1);
         fore_index = button_index==maxelement ? 0 : (button_index+1);
         var obt = new Object();
-        if(direction.data=='backward'){
+        if(dir.data.direction=='backward'){
            obt.data = {classto:back_class, button:back_index};    
         }else{
            obt.data = {classto:fore_class, button:fore_index};
@@ -155,4 +163,3 @@ function loadExt() {
         //    jQuery.colorbox({inline:true, href:"#basic-form"});
         //}
 }
-

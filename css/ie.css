@@ -1,5 +1,5 @@
 /*box background opacity bug*/
 #nav-box {
     background-color:#ffffff;
-    filter: alpha(opacity = 50);
+    filter: alpha(opacity = 80);
 }

@@ -52,7 +52,6 @@ table {
 #wrap-container {
 	height:902px;
 	overflow:hidden;
-	/*border:1px solid red;*/
 }
 	#bg-container {
 		height:515px;
@@ -62,15 +61,6 @@ table {
 	}
 	/*#bg-container.home0 {*/
 	/*	background-image: url(../home-assets/uja-girl-bg.jpg);*/
-	/*}*/
-	/*#bg-container.home1 {*/
-	/*	background-image: url(../home-assets/uja-oldexercise-bw-bg.jpg);*/
-	/*}*/
-	/*#bg-container.home2 {*/
-	/*	background-image: url(../home-assets/uja-girl-bw-bg.jpg);*/
-	/*}*/
-	/*#bg-container.home3 {*/
-	/*	background-image: url(../home-assets/uja-oldexercise-bg.jpg);*/
 	/*}*/
 		#over-bg {
 			height:inherit;
@@ -90,11 +80,31 @@ table {
 			top:0;
 			left:0;
 			padding-left:640px;
+			font-family: FranklinGothicURW-Boo;
 		}
-		#add-box div{
+		#add-box p{
+			color:#ffffff;
+			font-size:43px;
+			line-height:38px;
 			height:160px;
-			padding:42px 16px 50px 30px;
-			background:transparent url(../home-assets/uja-bluecrowd-thumb.jpg) top center no-repeat;
+			padding:42px 16px 50px 55px;
+			overflow:hidden;
+			background:#2280B2 url(../images/core/add-box-p.jpg) repeat-x;
+		}
+		#add-box p span {
+			position:relative;
+			top:-40px;
+			font-family: FranklinGothicURW-Dem;
+		}
+		#add-box p span.middle {
+			display: block;
+			top:-45px;
+			left:-36px;
+			width:250px;
+			color:#ccebf8;
+			line-height:50px;
+			border-bottom:3px solid #ccebf8;
+			font-family:FranklinGothicURW-Boo;
 		}
 		#nav-box {
 			position:relative;
@@ -104,12 +114,12 @@ table {
 			height:60px;
 			padding:10px 135px 10px 10px;
 			margin:20px 0;
-			background-color:rgba(255, 255, 255, 0.5);
+			background-color:rgba(255, 255, 255, 0.8);
 		}
 		#nav-box h2{
-			font-size: 17px;
-			line-height: 21px;
-			font-weight: bold
+			font-family: FranklinGothicURW-Dem;
+			font-size: 19px;
+			line-height: 25px;
 		}
 		#nav-box p{
 			word-break:break-all;
@@ -120,20 +130,47 @@ table {
 			bottom:10px;
 			right:10px;
 		}
-		#slide-nav li{
+		#slide-nav li {
 			float:left;
-			padding:5px;
 		}
-		#slide-nav li.selected{
+		#slide-nav a {
+			display:block;
+			/*float:left;*/
+			width:8px;
+			padding:5px;
+			text-indent:-1000px;
+			background: transparent url(../images/core/empty-bullet.png) center no-repeat;
+		}
+		
+		#slide-nav a.selected {
 			font-weight:bold;
+			background: transparent url(../images/core/black-bullet.png) center no-repeat;
+		}
+		#slide-nav a.navigator.back {
+			background: transparent url(../images/core/backward.png) center no-repeat;
+		}
+		#slide-nav a.navigator.back.hover {
+			background: transparent url(../images/core/backward-hover.png) center no-repeat;
+		}
+		#slide-nav a.navigator.fore {
+			background: transparent url(../images/core/foreward.png) center no-repeat;
+		}
+		#slide-nav a.navigator.fore.hover {
+			background: transparent url(../images/core/foreward-hover.png) center no-repeat;
 		}
 		#find-help ,
 		#donate {
+			display:block;
 			position:absolute;
+			text-decoration:none;
 			top:272px;
 			width:140px;
+			line-height:80px;
 			height:80px;
 			color:#ffffff;
+			text-align:center;
+			font-size:22px;
+			font-family: FranklinGothicURW-Dem;
 		}
 		#find-help {
 			background-color:#d95934;
@@ -156,11 +193,12 @@ table {
 		}
 		div.col-about {
 			color:#eeeeee;
-			background-color:#2280B2;
+			background:#2280B2 url(../images/core/col-about-bg.jpg) repeat-x;
 			padding:9px;
 			height:54px;
 		}
 		div.col-about h2 {
+			font-family: FranklinGothicURW-Boo;
 			line-height:21px;
 			font-size:17px;
 		}
@@ -172,10 +210,11 @@ table {
 			overflow:hidden;
 			background-color:#ffffff;
 		}
-		div.col-content img {
+		div.col-content img.thumb {
 			height:130px;
 		}
 		div.col-content h3 {
+			font-family: FranklinGothicURW-Dem;
 			font-size:14px;
 			padding:8px 0;
 			color:#00538e;
@@ -185,9 +224,10 @@ table {
 		}
 		div.col-content a.link-box1,
 		div.col-content a.link-box2 {
+			font-family: FranklinGothicURW-Dem;
 			font-size:14px;
 			display:block;
-			padding:0 4px;
+			padding:0 6px;
 		}
 		div.col-content a.link-box1 {
 			height:56px;
@@ -199,6 +239,17 @@ table {
 			height:36px;
 			line-height:36px;
 			background-color:#fdb827;
+			-moz-border-radius: 7px;
+			border-radius: 7px;
+			background:transparent url(../images/core/link-box2.jpg) repeat-x;
+		}
+		div.col-content p {
+			background:transparent url(../images/core/next.png) no-repeat 95% 100%;
+		}
+		div.col-content a {
+			text-decoration:none;
+			color:#000000;
+			background:transparent url(../images/core/next.png) no-repeat 95% 50%;
 		}
 		div.col-more {
 			background-color:#2280B2;
@@ -210,6 +261,8 @@ table {
 			color:#eeeeee;
 			line-height:22px;
 			text-decoration:none;
+			padding-right:16px;
+			background:transparent url(../images/core/next-white.png) no-repeat right center;
 		}
 #footer{
 	position:relative;
@@ -223,15 +276,30 @@ table {
 }
 
 	div.foot-col {
-		width:150px;
+		width:146px;
 		float:left;
-		margin-right:6px;
+		margin-right:10px;
+		background:transparent url(../images/core/foot-border.jpg) no-repeat top right;
 	}
-	
-		
+	div.foot-col.last {
+		background-image:none;
+	}
+		div.foot-col h2{
+			font-size:14px;
+			color:#00438e;
+			padding:0 0 10px;
+			font-family: FranklinGothicURW-Dem;
+		}
 		div.last {
 			margin-right:0;
 		}
 		div.no-visible {
 			display:none;
 		}
+
+#basic-form {
+	padding:10px;
+}
+	#basic-form label {
+		display:block;
+	}

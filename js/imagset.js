@@ -2,14 +2,14 @@
  
 var imageset = {
     'fadeTime':1000,
-    'iteration':2000,
+    'iteration':6000,
     'pathFolder':'home-assets/',
     'images': [
         {
-            'imgfile': 'uja-girl-bg.jpg',
-            'title': 'Girl Writting',
-            'line1': 'Programs like Eden Village connect kids to their Jewish roots while promoting a',
-            'line2': 'sustainable world. Discover how you+UJA can strengthen their Jewish identity.',
+            'imgfile': 'delivering_dignity-bg.jpg',
+            'title': 'Delivering Dignity',
+            'line1': 'Holocaust survivors living in New York are among the poorest of low-income',
+            'line2': 'Jews in the city. Together, you+UJA help them live their lives with dignity.',
             'link': {
                'path': 'http://www.bbmg.com',
                'optCaption': '',
@@ -17,10 +17,21 @@ var imageset = {
                 }
             },
         {
-            'imgfile': 'uja-oldexercise-bw-bg.jpg',
-            'title': 'All make exercise',
-            'line1': 'View Vimeo Video',
-            'line2': 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM',
+            'imgfile': 'head_start_in_israel-bg.jpg',
+            'title': 'A Head Start in Israel',
+            'line1': 'We\'re leveling the playing field so first generation Ethiopian Israelis can achieve',
+            'line2': 'the same successes as other Israelis. Another reason Israel+UJA are good together.',
+            'link': {
+               'path': 'http://www.ujafedny.org',
+               'optCaption': '',
+               'optLink': ''
+                }
+            },
+        {
+            'imgfile': 'we_remember-bg.jpg',
+            'title': 'We Remember',
+            'line1': 'We could only respond on 9/11 because we were ready on 9/10. Ten years ago,',
+            'line2': 'UJA+our agencies were there to help, even for those who never expected they\'d need it',
             'link': {
                'path': '<iframe src="http://player.vimeo.com/video/9594822?title=0&amp;byline=0&amp;portrait=0" width="600" height="450" frameborder="0"></iframe>',
                'optCaption': 'Area for a video caption. Sit amet, consectetur adipiscing eif',
@@ -28,10 +39,10 @@ var imageset = {
                 }
             },
         {
-            'imgfile': 'uja-girl-bw-bg.jpg',
-            'title': 'Another Girl',
-            'line1': 'Subtitle for Image One,',
-            'line2': 'Subtitle for Image One, Subtitle for Image One, Subtitle for Image One',
+            'imgfile': 'good_wholesome_fun-bg.jpg',
+            'title': 'Good, Wholesome Fun',
+            'line1': 'Programs like Eden Village connect kids to their Jewish roots while promoting a',
+            'line2': 'sustainable world. Discover how you+UJA can help deepen a child\'s Jewish identity.',
             'link': {
                'path': 'http://www.ujafedny.org',
                'optCaption': '',
@@ -39,21 +50,10 @@ var imageset = {
                 }
             },
         {
-            'imgfile': 'uja-girl-bw-bg.jpg',
-            'title': 'Another Girl',
-            'line1': 'Subtitle for Image One,',
-            'line2': 'Subtitle for Image One, Subtitle for Image One, Subtitle for Image One',
-            'link': {
-               'path': 'http://www.ujafedny.org',
-               'optCaption': '',
-               'optLink': ''
-                }
-            },
-        {
-            'imgfile': 'uja-oldexercise-bg.jpg',
-            'title': 'Its so funny',
-            'line1': 'Subtitle for Image One, Subtitle for Image One, Subtitle for Image One',
-            'line2': 'Subtitle for Image One, Subtitle for Image One, Subtitle for Image One',
+            'imgfile': 'work_it-bg.jpg',
+            'title': 'Work It',
+            'line1': 'Thanks to our network of agencies, we\'re ensuring community members of all ages',
+            'line2': 'enjoy a healthy lifestyle. No wonder UJA+JCC are good together.',
             'link': {
                'path': 'http://www.ujafedny.org/our-mission/',
                'optCaption': '',
