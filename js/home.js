@@ -140,9 +140,10 @@ function rotation(cur){
 function loadExt() {
         clearInterval(rotate_int);//stop the rotate loop
         current = jQuery('#bg-container').attr('class');//the current bg-container class
-        classNumber = current.charAt(current.length-1) * 1;
-        linkpath =jsonAbbrev[classNumber].link.path;
-        if(linkpath.indexOf('iframe') > 0){
+        classNumber = current.charAt(current.length-1) * 1;//json node index
+        linkpath =jsonAbbrev[classNumber].link.path;//video uri path
+        //obtain the video uri path, width and height
+        if(linkpath.indexOf('object') > 0 || linkpath.indexOf('iframe') > 0){
                 s0 = linkpath.indexOf('src') + 5;
                 s1 = linkpath.indexOf('"',s0);
                 w0 = linkpath.indexOf('width') + 7;

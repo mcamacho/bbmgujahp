@@ -138,7 +138,7 @@ table {
 			/*float:left;*/
 			width:8px;
 			padding:5px;
-			text-indent:-1000px;
+			text-indent:-9999px;
 			background: transparent url(../images/core/empty-bullet.png) center no-repeat;
 		}
 		

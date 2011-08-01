@@ -2,7 +2,7 @@
  
 var imageset = {
     'fadeTime':1000,
-    'iteration':6000,
+    'iteration':11000,
     'pathFolder':'home-assets/',
     'images': [
         {
@@ -33,7 +33,7 @@ var imageset = {
             'line1': 'We could only respond on 9/11 because we were ready on 9/10. Ten years ago,',
             'line2': 'UJA+our agencies were there to help, even for those who never expected they\'d need it',
             'link': {
-               'path': '<iframe src="http://player.vimeo.com/video/9594822?title=0&amp;byline=0&amp;portrait=0" width="600" height="450" frameborder="0"></iframe>',
+               'path': '<object width="700" height="525"><param name="allowfullscreen" value="true"/><param name="allowscriptaccess" value="always"/><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=9594822&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1&amp;autoplay=0&amp;loop=0"/><embed src="http://vimeo.com/moogaloop.swf?clip_id=9594822&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1&amp;autoplay=0&amp;loop=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="700" height="525"></embed></object><p><a href="/9594822">Reach Out - Promotional Video for UJA</a> from <a href="/keyproductions">Key Productions</a> on <a href="/">Vimeo</a>.</p>',
                'optCaption': 'Area for a video caption. Sit amet, consectetur adipiscing eif',
                'optLink': 'http://www.ujafedny.org'
                 }
