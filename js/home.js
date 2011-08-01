@@ -36,7 +36,7 @@ jQuery(function () {
         jQuery('#add-box').click(loadExt).css('cursor', 'pointer');
         
         //add interaction to the tell us button
-        jQuery(".link-box2").colorbox({width:"50%", inline:true, href:"#basic-form"});
+        jQuery(".link-box2").colorbox({width:"450px", inline:true, href:"#tellus-form"});
 });
 
 function cssInit() {

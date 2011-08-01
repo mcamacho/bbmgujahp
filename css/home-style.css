@@ -297,9 +297,23 @@ table {
 			display:none;
 		}
 
-#basic-form {
+#tellus-form {
 	padding:10px;
 }
-	#basic-form label {
+	#tellus-form input,
+	#tellus-form textarea {
 		display:block;
+		width:392px;
+		margin-bottom:15px;
+		padding:3px 2px 3px 7px; 
+	}
+	
+	#tellus-form textarea {
+		height:200px;
+	}
+	#tellus-form input[type="submit"] {
+		display:inline-block;
+		position:relative;
+		left:335px;
+		width:70px;
 	}
