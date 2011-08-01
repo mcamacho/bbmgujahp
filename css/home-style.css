@@ -76,35 +76,22 @@ table {
 	}
 	
 		#add-box {
+			display:block;
+			width:300px;
+			height:250px;
 			position:relative;
 			top:0;
 			left:0;
-			padding-left:640px;
-			font-family: FranklinGothicURW-Boo;
+			margin-left:640px;
+			background:transparent url(../images/core/add-box.jpg) repeat-x;
 		}
-		#add-box p{
-			color:#ffffff;
-			font-size:43px;
-			line-height:38px;
-			height:160px;
-			padding:42px 16px 50px 55px;
-			overflow:hidden;
-			background:#2280B2 url(../images/core/add-box-p.jpg) repeat-x;
-		}
-		#add-box p span {
-			position:relative;
-			top:-40px;
-			font-family: FranklinGothicURW-Dem;
-		}
-		#add-box p span.middle {
-			display: block;
-			top:-45px;
-			left:-36px;
-			width:250px;
-			color:#ccebf8;
-			line-height:50px;
-			border-bottom:3px solid #ccebf8;
-			font-family:FranklinGothicURW-Boo;
+		#slide-hover {
+			position:absolute;
+			top:0;
+			left:27px;
+			display:block;
+			width:620px;
+			height:250px;
 		}
 		#nav-box {
 			position:relative;
@@ -125,6 +112,11 @@ table {
 			word-break:break-all;
 			font-size:12px;
 		}
+		#nav-box h2.hover,
+		#nav-box p.hover {
+			text-decoration:underline;
+		}
+		
 		#slide-nav {
 			position:absolute;
 			bottom:10px;
@@ -163,7 +155,7 @@ table {
 			display:block;
 			position:absolute;
 			text-decoration:none;
-			top:272px;
+			top:270px;
 			width:140px;
 			line-height:80px;
 			height:80px;
@@ -214,9 +206,11 @@ table {
 			height:130px;
 		}
 		div.col-content h3 {
+			padding:8px 0;
+		}
+		div.col-content h3 a{
 			font-family: FranklinGothicURW-Dem;
 			font-size:14px;
-			padding:8px 0;
 			color:#00538e;
 		}
 		div.col-content div.col-social {
@@ -231,25 +225,26 @@ table {
 		}
 		div.col-content a.link-box1 {
 			height:56px;
-			line-height:56px;
+			/*line-height:56px;*/
 			border:1px solid #b2e6f2;
 		}
 		div.col-content a.link-box2 {
 			margin:10px 0;
 			height:36px;
-			line-height:36px;
+			/*line-height:36px;*/
 			background-color:#fdb827;
 			-moz-border-radius: 7px;
 			border-radius: 7px;
 			background:transparent url(../images/core/link-box2.jpg) repeat-x;
 		}
 		div.col-content p {
-			background:transparent url(../images/core/next.png) no-repeat 95% 100%;
+			/*background:transparent url(../images/core/next.png) no-repeat 95% 100%;*/
 		}
 		div.col-content a {
+			display:block;
 			text-decoration:none;
 			color:#000000;
-			background:transparent url(../images/core/next.png) no-repeat 95% 50%;
+			background:transparent url(../images/core/next.png) no-repeat 95% 100%;
 		}
 		div.col-more {
 			background-color:#2280B2;

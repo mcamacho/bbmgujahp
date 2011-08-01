@@ -2,49 +2,28 @@
 var rotate_int;//variable that receives the setinterval return
 var button_index = 0;//variable that receives the index button
 
-var jsonAbbrev = imageset.images;//use the json images var
-var totalImages = jsonAbbrev.length;
-var pathFolder = imageset.pathFolder;//use the json imagesPath var
+var imageAbbrev = imageset.images;//use the json images var
+var totalImages = imageAbbrev.length;//total amount of images
 var iteration = imageset.iteration;//use the json iteration var
 var fadeTime = imageset.fadeTime;//use the json fade var
+
+var columnAbbrev = columnset.column;//use the json column var
 
 //preload images
 (function() {
         imgpreload = new Image();
-        qtt = jsonAbbrev.length;
+        qtt = imageAbbrev.length;
         for(i=0;i<qtt;i++){
-                imgpreload.src = pathFolder + jsonAbbrev[i].imgfile;
+                imgpreload.src = imageset.pathFolder + imageAbbrev[i].imgfile;
         }
 })();
-
-
-//jquery function that initiates when html is loaded
-jQuery(function () {
-        //construct and add the css styles for each background
-        cssInit();
-        
-        //construct nav bar and assign interactivity based on json elements
-        navInit();
-        
-        //initiate the h2, and lines text
-        navText(0);
-        
-        //Load the slideshow
-        rotate_int= setInterval('rotate()', iteration);
-        
-        //set bg-container interactivity
-        jQuery('#add-box').click(loadExt).css('cursor', 'pointer');
-        
-        //add interaction to the tell us button
-        jQuery(".link-box2").colorbox({width:"450px", inline:true, href:"#tellus-form"});
-});
 
 function cssInit() {
         //add the styles for the different backgrounds
         cssString = '<style type="text/css">';
-        for (t in jsonAbbrev){
+        for (t in imageAbbrev){
                 cssString += '#bg-container.home' + t + ' {';
-		cssString += 'background-image: url(' + pathFolder + jsonAbbrev[t].imgfile + ');';
+		cssString += 'background-image: url(' + imageset.pathFolder + imageAbbrev[t].imgfile + ');';
                 cssString += '}';
         }
         cssString += '</style>';
@@ -53,6 +32,30 @@ function cssInit() {
         //add class 'home0' to #bg-container
         jQuery('#bg-container').addClass('home0');
 }
+function colInit() {
+        //include the data from the json script
+        for (k in columnAbbrev){
+                imagepath = columnset.pathFolder + columnAbbrev[k].imgfile;
+                jQuery('div.col-content:eq(' + k + ') img.thumb').attr({'src': imagepath, 'alt': columnAbbrev[k].header});
+                jQuery('div.col-content:eq(' + k + ') h3 a, div.col-content p a').attr('href',columnAbbrev[k].contentlink);
+                jQuery('div.col-content:eq(' + k + ') h3 a').text(columnAbbrev[k].header);
+                jQuery('div.col-content:eq(' + k + ') p a').text(columnAbbrev[k].shorttext);
+                
+                sourcelink = columnAbbrev[k].contentlink;
+                sourcelink = sourcelink.replace('://','%3A%2F%2F');
+                sourcelink = sourcelink.replace('/','%2F');
+                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>';
+                ttpath ='<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + columnAbbrev[k].contentlink + '" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
+                jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
+                jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
+                
+                jQuery('div.col-content:eq(' + k + ') a.link-box1:eq(0)').attr('href',columnAbbrev[k].textlink1.link).text(columnAbbrev[k].textlink1.text);
+                if(jQuery('div.col-content:eq(' + k + ') a.link-box1:eq(1)')){
+                        jQuery('div.col-content:eq(' + k + ') a.link-box1:eq(1)').attr('href',columnAbbrev[k].textlink2.link).text(columnAbbrev[k].textlink2.text);
+                }
+        }
+}
+
 function navInit() {
         //construct the html
         element = jQuery('<li></li>')
@@ -60,7 +63,7 @@ function navInit() {
         jQuery('<a href="" class="navigator back">&#60</a>')
                 .appendTo(element)
                 .click({direction:'backward'}, rotControl);
-        for (t in jsonAbbrev){
+        for (t in imageAbbrev){
                 element = jQuery('<li></li>')
                         .appendTo('#slide-nav');
                 jQuery('<a href="" class="button">O</a>')
@@ -77,13 +80,13 @@ function navInit() {
         jQuery('#slide-nav a.button:eq(0)').addClass('selected');
         jQuery('#slide-nav a').click(function(event){event.preventDefault();});
         jQuery('#slide-nav a.navigator').hover( function () {$(this).addClass("hover");},
-                                                function () {$(this).removeClass("hover");});
+                                                function () {$(this).removeClass("hover");});    
 }
 
 function navText(index){
-        jQuery('#nav-box h2').text(jsonAbbrev[index].title);
-        jQuery('#nav-box p:eq(0)').text(jsonAbbrev[index].line1);
-        jQuery('#nav-box p:eq(1)').text(jsonAbbrev[index].line2);
+        jQuery('#nav-box h2').text(imageAbbrev[index].title);
+        jQuery('#nav-box p:eq(0)').text(imageAbbrev[index].line1);
+        jQuery('#nav-box p:eq(1)').text(imageAbbrev[index].line2);
 }
 
 //automatic rotate function of background images
@@ -137,11 +140,24 @@ function rotation(cur){
         interButton(button);
 }
 
-function loadExt() {
+function interactInit(){
+        //set bg-container interactivity
+        jQuery('#slide-hover, #nav-box h2, #nav-box p').click(loadExt);
+        jQuery('#nav-box h2, #nav-box p').css('cursor', 'pointer')
+                                        .hover(
+                                               function(){jQuery('#nav-box h2, #nav-box p').addClass('hover');},
+                                               function(){jQuery('#nav-box h2, #nav-box p').removeClass('hover');});
+        
+        //add interaction to the tell us button
+        jQuery(".link-box2").colorbox({width:"450px", inline:true, href:"#tellus-form"});
+}
+
+function loadExt(event) {
+        event.preventDefault();
         clearInterval(rotate_int);//stop the rotate loop
         current = jQuery('#bg-container').attr('class');//the current bg-container class
         classNumber = current.charAt(current.length-1) * 1;//json node index
-        linkpath =jsonAbbrev[classNumber].link.path;//video uri path
+        linkpath =imageAbbrev[classNumber].link.path;//video uri path
         //obtain the video uri path, width and height
         if(linkpath.indexOf('object') > 0 || linkpath.indexOf('iframe') > 0){
                 s0 = linkpath.indexOf('src') + 5;
@@ -153,8 +169,8 @@ function loadExt() {
                 videowidth = linkpath.slice(w0,w1) * 1;
                 videoheight = linkpath.slice(h0,h1) * 1;
                 videopath = linkpath.slice(s0,s1);
-                videocaption = jsonAbbrev[classNumber].link.optCaption;
-                videolink = jsonAbbrev[classNumber].link.optLink;
+                videocaption = imageAbbrev[classNumber].link.optCaption;
+                videolink = imageAbbrev[classNumber].link.optLink;
                 videotitle = '<p>' + videocaption + '</p>' + '<a href="' + videolink + '" target="_blank" >' + videolink + '</a>';
                 jQuery.colorbox({title:videotitle, iframe:true, innerWidth:videowidth, innerHeight:videoheight, href:videopath});
         }else{
@@ -164,3 +180,29 @@ function loadExt() {
         //    jQuery.colorbox({inline:true, href:"#basic-form"});
         //}
 }
+
+//----------------------------
+//jquery function that initiates when html is loaded
+jQuery(function () {
+        //construct and add the css styles for each background
+        cssInit();
+        
+        //initiate the h2, and lines text
+        navText(0);
+        
+        //if the image slide contains more than 1 image navInit and rotate
+        if (imageAbbrev.length > 1){
+                //construct nav bar and assign interactivity based on json elements
+                navInit();
+                
+                //Load the slideshow
+                rotate_int= setInterval('rotate()', iteration);
+        }
+        
+        //initiate the columcontent
+        colInit();
+        
+        //add interactivity
+        interactInit();
+});
+
