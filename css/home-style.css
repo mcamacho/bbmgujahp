@@ -56,25 +56,29 @@ table {
 	#bg-container {
 		height:515px;
 		background-color:transparent;
-		background-position:50% 0%;
+		background-position:50% 0;
 		background-repeat:no-repeat;
 	}
-	/*#bg-container.home0 {*/
-	/*	background-image: url(../home-assets/uja-girl-bg.jpg);*/
-	/*}*/
 		#over-bg {
-			height:inherit;
-			background: transparent url(../images/core/over-bg.png) top center repeat-x;
+			height:515px;
+			background-color:transparent;
+			background-image:url(../images/core/over-bg.png);
+			background-position:50% 0;
+			background-repeat:no-repeat;
 		}
+		
 	#content {
 		position:relative;
 		top:-515px;
 		width:940px;
 		margin:0 auto;
 		padding: 0 31px 22px 27px;
-		background: transparent url(../images/core/cont-bg.png) no-repeat bottom center;
+		background-color:transparent;
+		background-image:url(../images/core/cont-bg.png);
+		background-position:50% 0%;
+		background-repeat:no-repeat;
 	}
-	
+		/*caption, navigation and additional boxes ---------------------------------------*/
 		#add-box {
 			display:block;
 			width:300px;
@@ -83,7 +87,7 @@ table {
 			top:0;
 			left:0;
 			margin-left:640px;
-			background:transparent url(../images/core/add-box.jpg) repeat-x;
+			background:transparent url(../home-assets/good_together.jpg) no-repeat;
 		}
 		#slide-hover {
 			position:absolute;
@@ -127,7 +131,6 @@ table {
 		}
 		#slide-nav a {
 			display:block;
-			/*float:left;*/
 			width:8px;
 			padding:5px;
 			text-indent:-9999px;
@@ -172,6 +175,7 @@ table {
 			background-color:#e18a19;
 			left:827px;
 		}
+		/*column boxes -----------------------------------------------------------------------------*/
 		#column-boxes {
 			width:100%;
 			overflow:hidden;
@@ -182,6 +186,11 @@ table {
 			height:509px;
 			margin-right:20px;
 			font-size:11px;
+		}
+		div.page-col p img,
+		div.page-col span img {
+			vertical-align: middle;
+			margin-left: 3px;
 		}
 		div.col-about {
 			color:#eeeeee;
@@ -194,18 +203,23 @@ table {
 			line-height:21px;
 			font-size:17px;
 		}
+		div.col-about p {
+			height:26px;
+			overflow:hidden;
+		}
 		div.col-content {
 			border:1px solid #2280B2;
 			border-width:0 1px;
-			padding:9px;
+			padding:9px 9px 0 9px;
 			width:200px;
 			overflow:hidden;
-			background-color:#ffffff;
+			background-color:#f0f0f1;
 		}
 		div.col-content img.thumb {
 			height:130px;
 		}
 		div.col-content h3 {
+			height:34px;
 			padding:8px 0;
 		}
 		div.col-content h3 a{
@@ -213,39 +227,63 @@ table {
 			font-size:14px;
 			color:#00538e;
 		}
+		div.col-content p {
+			height:27px;
+		}
 		div.col-content div.col-social {
 			padding:9px 0;
-		}
-		div.col-content a.link-box1,
-		div.col-content a.link-box2 {
-			font-family: FranklinGothicURW-Dem;
-			font-size:14px;
-			display:block;
-			padding:0 6px;
-		}
-		div.col-content a.link-box1 {
-			height:56px;
-			/*line-height:56px;*/
-			border:1px solid #b2e6f2;
-		}
-		div.col-content a.link-box2 {
-			margin:10px 0;
-			height:36px;
-			/*line-height:36px;*/
-			background-color:#fdb827;
-			-moz-border-radius: 7px;
-			border-radius: 7px;
-			background:transparent url(../images/core/link-box2.jpg) repeat-x;
-		}
-		div.col-content p {
-			/*background:transparent url(../images/core/next.png) no-repeat 95% 100%;*/
 		}
 		div.col-content a {
 			display:block;
 			text-decoration:none;
 			color:#000000;
-			background:transparent url(../images/core/next.png) no-repeat 95% 100%;
 		}
+		
+		div.link-boxes {
+			border:1px solid #2280B2;
+			border-width:0 1px;
+			padding:5px 9px;
+			width:200px;
+			height:121px;
+			overflow:hidden;
+			background-color:#ffffff;
+		}
+		div.link-boxes a {
+			display:block;
+			position:relative;
+			text-decoration:none;
+			font-size:14px;
+		}
+		div.link-boxes a.link-box1 {
+			padding:0 6px;
+			height:56px;
+			border:1px solid #b2e6f2;
+			color:#00538e;
+			margin-bottom:5px;
+		}
+		div.link-boxes a.link-box1 span{
+			font-family: FranklinGothicURW-Dem;
+			display:table-cell;
+			height:inherit;
+			vertical-align:middle;
+		}
+		div.link-boxes a.link-box2 {
+			padding-top:10px;
+			height:48px;
+		}
+		div.link-boxes a.link-box2 span{
+			padding:0 6px;
+			font-family: FranklinGothicURW-Dem;
+			display:block;
+			color:#ffffff;
+			height:36px;
+			line-height:36px;
+			background-color:#fdb827;
+			-moz-border-radius: 7px;
+			border-radius: 7px;
+			background:transparent url(../images/core/link-box2.jpg) repeat-x;
+		}
+		
 		div.col-more {
 			background-color:#2280B2;
 			padding:9px;
@@ -291,24 +329,49 @@ table {
 		div.no-visible {
 			display:none;
 		}
+div.b {
+	position:relative;
+	top:23px;
+	width:998px;
+	margin:0 auto;
+        height: 12px;
+        background: url(../images/core/doc-bottom.png) 0 0 no-repeat transparent;   
+    }
+		
+/*global*/
+a {
+	outline:medium none;
+}
+#tellus p {
+	color:#ffffff;
+	font-size:16px;
+	padding:0 10px;
+}
 
 #tellus-form {
 	padding:10px;
 }
 	#tellus-form input,
+	#tellus-form select,
 	#tellus-form textarea {
-		display:block;
 		width:392px;
-		margin-bottom:15px;
+		margin-top:15px;
 		padding:3px 2px 3px 7px; 
 	}
 	
+	#tellus-form select {
+		margin-left:10px;
+	}
 	#tellus-form textarea {
 		height:200px;
 	}
 	#tellus-form input[type="submit"] {
-		display:inline-block;
+		display:block;
 		position:relative;
 		left:335px;
 		width:70px;
+	}
+	#tellus-form label.error {
+		display:block;
+		color:#cc0000;
 	}

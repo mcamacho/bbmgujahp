@@ -27,19 +27,21 @@ function cssInit() {
                 cssString += '}';
         }
         cssString += '</style>';
-        $(cssString).appendTo('head');
+        jQuery(cssString).appendTo('head');
         
         //add class 'home0' to #bg-container
         jQuery('#bg-container').addClass('home0');
 }
 function colInit() {
         //include the data from the json script
+        nextIcon ='<img src="images/core/next.png" alt="next" />';
         for (k in columnAbbrev){
                 imagepath = columnset.pathFolder + columnAbbrev[k].imgfile;
+                jQuery('div.col-content:eq(' + k + ') > a').attr('href',columnAbbrev[k].contentlink);
                 jQuery('div.col-content:eq(' + k + ') img.thumb').attr({'src': imagepath, 'alt': columnAbbrev[k].header});
                 jQuery('div.col-content:eq(' + k + ') h3 a, div.col-content p a').attr('href',columnAbbrev[k].contentlink);
-                jQuery('div.col-content:eq(' + k + ') h3 a').text(columnAbbrev[k].header);
-                jQuery('div.col-content:eq(' + k + ') p a').text(columnAbbrev[k].shorttext);
+                jQuery('div.col-content:eq(' + k + ') h3 a').html(columnAbbrev[k].header);
+                jQuery('div.col-content:eq(' + k + ') p a').html(columnAbbrev[k].shorttext + nextIcon);
                 
                 sourcelink = columnAbbrev[k].contentlink;
                 sourcelink = sourcelink.replace('://','%3A%2F%2F');
@@ -49,9 +51,11 @@ function colInit() {
                 jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
                 jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
                 
-                jQuery('div.col-content:eq(' + k + ') a.link-box1:eq(0)').attr('href',columnAbbrev[k].textlink1.link).text(columnAbbrev[k].textlink1.text);
-                if(jQuery('div.col-content:eq(' + k + ') a.link-box1:eq(1)')){
-                        jQuery('div.col-content:eq(' + k + ') a.link-box1:eq(1)').attr('href',columnAbbrev[k].textlink2.link).text(columnAbbrev[k].textlink2.text);
+                jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0)').attr('href',columnAbbrev[k].textlink1.link);
+                jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0) span').html(columnAbbrev[k].textlink1.text  + nextIcon);
+                if(jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)')){
+                        jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)').attr('href',columnAbbrev[k].textlink2.link);
+                        jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1) span').html(columnAbbrev[k].textlink2.text  + nextIcon);
                 }
         }
 }
@@ -79,8 +83,8 @@ function navInit() {
         //add class 'selected' to first li of the nav
         jQuery('#slide-nav a.button:eq(0)').addClass('selected');
         jQuery('#slide-nav a').click(function(event){event.preventDefault();});
-        jQuery('#slide-nav a.navigator').hover( function () {$(this).addClass("hover");},
-                                                function () {$(this).removeClass("hover");});    
+        jQuery('#slide-nav a.navigator').hover( function () {jQuery(this).addClass("hover");},
+                                                function () {jQuery(this).removeClass("hover");});    
 }
 
 function navText(index){
@@ -149,7 +153,7 @@ function interactInit(){
                                                function(){jQuery('#nav-box h2, #nav-box p').removeClass('hover');});
         
         //add interaction to the tell us button
-        jQuery(".link-box2").colorbox({width:"450px", inline:true, href:"#tellus-form"});
+        jQuery(".link-box2").colorbox({innerWidth:"450px", innerHeight:"470px", scrolling:false, inline:true, href:"#tellus"});
 }
 
 function loadExt(event) {
@@ -181,6 +185,45 @@ function loadExt(event) {
         //}
 }
 
+function ie6browser(){
+        //png transparency
+        jQuery('#over-bg').supersleight();
+        jQuery('#content').supersleight();
+}
+
+function tellusInit(){
+        jQuery('#tellus-form').validate({
+                submitHandler: function(form) {
+                        ajaxrequest();
+                },
+                debug: true
+        });
+
+        d = new Date();
+        curr_date = d.getMonth() + "-" + d.getDate() + "-" + d.getFullYear();
+        jQuery('#date').attr('value',curr_date);
+}
+function ajaxrequest(){
+        jQuery.ajax({
+                type: "POST",
+                url: "feedback.php",
+                data: jQuery('#tellus-form').serialize(),
+                success: function(msg){
+                        if( msg.indexOf(':0,') < 0 && msg.indexOf(':103,') < 0) {
+                                cleanform();
+                                jQuery('#tellus-form').hide();
+                                jQuery('#thank-you').show();
+                        }
+                }
+        });
+}
+function cleanform(){
+        jQuery(':input','#tellus-form')
+                .not(':submit, :hidden')
+                .val('')
+                .removeAttr('checked');
+}
+
 //----------------------------
 //jquery function that initiates when html is loaded
 jQuery(function () {
@@ -204,5 +247,11 @@ jQuery(function () {
         
         //add interactivity
         interactInit();
+        
+        //add png ie6 transparency
+        ie6browser();
+        
+        //add date input field and validation functionality to tellus form
+        tellusInit()
 });
 
