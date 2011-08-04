@@ -4,6 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name = "viewport" content = "width = 1098" />
     <title>Home &raquo; UJA-Federation of New York</title>
     
     <!--
@@ -38,71 +39,80 @@
     */    
     -->
 
-    <link rel="stylesheet" type="text/css" href="css/FranklinGothicBookAndDemi.css"><!--myfont webfont-->    
-    <link rel="stylesheet" type="text/css" href="css/home-style.css" /><!--core css-->
-    <link media="screen" rel="stylesheet" href="css/colorbox.css" /><!--window layer css-->
+    <link rel="stylesheet" type="text/css" href="css/FranklinGothicBookAndDemi.css" /><!--myfont webfont-->    
+    <link rel="stylesheet" type="text/css" href="css/home-style.css" /><!--main css-->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/colorbox.css" /><!--window layer css-->
     
     <script src="http://code.jquery.com/jquery.min.js" type="text/javascript" ></script>
-    <script src="js/jquery.colorbox-min.js"></script><!--window layer script-->
+    <script src="js/jquery.colorbox-min.js" type="text/javascript" ></script><!--window layer script-->
+    <script src="js/browser.js" type="text/javascript" ></script><!--browser script-->
+    
     
     <!--[if lte IE 8]>
-    <link rel="stylesheet" type="text/css" href="css/ie.css" />
+        <link rel="stylesheet" type="text/css" href="css/ie.css" />
     <![endif]-->
     
     <!--[if lte IE 7]>
-    <link rel="stylesheet" type="text/css" href="css/ie7ie6.css" />
+        <link rel="stylesheet" type="text/css" href="css/ie7ie6.css" />
     <![endif]-->
     
-    <!--elements loaded to display actual items: header, menu and background-->
-    <link rel="stylesheet" type="text/css" href="css/temp-layout.css" />
-    <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/primary_nav.css" />
-    <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/yui/fonts.css" />
-    <!--<link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/tracking/css/survey.css" />-->
+    <!--[if lte IE 6]>
+        <link rel="stylesheet" type="text/css" href="css/ie6.css" />
+    <![endif]-->
     
-    <!--<script type="text/javascript" src="http://www.ujafedny.org/tracking/js/survey.js" ></script>-->
-    <!--<script type="text/javascript" src="http://www.ujafedny.org/themes/ujafny/js/cufon-yui.js" ></script>-->
-    
-    <script type="text/javascript">
-    //<![CDATA[
-    //var surveyOptions = [];
-    //surveyOptions.excluded = false;
-    //surveyOptions.autoSlide = true;
-    //surveyOptions.state = 'minimized';
-    //surveyOptions.surveyID = 46913;
-    //]]>
-    </script>
-    <!-- actual js and css for actual items-->
+    <!--scripts, links and style from the ujafedny site, loaded to display actual items: header, menu and background-->
+        <link rel="stylesheet" type="text/css" href="css/temp-layout.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/primary_nav.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/themes/ujafny/css/yui/fonts.css" />
+        <!--<link rel="stylesheet" type="text/css" href="http://www.ujafedny.org/tracking/css/survey.css" />-->
+        
+        <!--<script type="text/javascript" src="http://www.ujafedny.org/tracking/js/survey.js" ></script>-->
+        <!--<script type="text/javascript" src="http://www.ujafedny.org/themes/ujafny/js/cufon-yui.js" ></script>-->
+        
+        <script type="text/javascript">
+        //<![CDATA[
+        //var surveyOptions = [];
+        //surveyOptions.excluded = false;
+        //surveyOptions.autoSlide = true;
+        //surveyOptions.state = 'minimized';
+        //surveyOptions.surveyID = 46913;
+        //]]>
+        </script>
     
 </head>
 
 <body>    
     <div class='m'>
         <div id='header'>
-            <script type="text/javascript" src="header.js" ></script>  
+            <script type="text/javascript" src="header.js" ></script><!--js that replicates the header-->
         </div>
         <div id="primary">
-            <!--<script type="text/javascript" src="primary.js" ></script>  -->
+            <!--<script type="text/javascript" src="primary.js" ></script>  --><!--js that replicates the navigation-->
         </div>
     </div>
     <!--end actual content-->
     
+    
+    <!--markup for home template-->
+    
     <div id="wrap-container">
         <div id="bg-container">
-            <div id="over-bg"></div>
+            
         </div>
+        <!--end of background slide container-->
         <div id="content">
-            <a href="" id="add-box"></a>
+            <h1 id="add-box"><a href="" >YOU+UJA GOOD TOGETHER</a></h1>
             <a href="" id="slide-hover"></a>
             <div id="control-box">
                 <div id="nav-box">
                     <h2>Title</h2>
                     <p>Line1</p>
-                    <p>Line2</p>
-                    <ul id="slide-nav"></ul>
+                    <p>Line2</p>                    
                 </div>
                 <a href="" id="find-help">FIND HELP</a>
                 <a href="" id="donate">DONATE</a>
             </div>
+            <!--end of slide navigation and caption, and over slide boxes-->
             <div id="column-boxes">
                 <div class="page-col">
                     <div class="col-about">
@@ -118,10 +128,10 @@
                     </div>
                     <div class="link-boxes">
                         <a href="" class="link-box1"><span>Link text</span></a>
-                        <a href="" class="link-box2"><span>TELL US WHAT YOU THINK<img src="images/core/next-white.png" alt="next"></span></a>
+                        <a href="" class="link-box2"><span>TELL US WHAT YOU THINK<img src="images/core/next-white.png" alt="next" /></span></a>
                     </div>
                     <div class="col-more">
-                        <a href="" title="Learn More">Learn More</a>
+                        <a href="" title="Learn More">Learn More<img src="images/core/next-white.png" alt="next" /></a>
                     </div>
                 </div>
                 <div class="page-col">
@@ -141,7 +151,7 @@
                         <a href="" class="link-box1"><span>Link text</span></a>
                     </div>
                     <div class="col-more">
-                        <a href="" title="Read More">Read More</a>
+                        <a href="" title="Read More">Read More<img src="images/core/next-white.png" alt="next" /></a>
                     </div>
                 </div>
                 <div class="page-col">
@@ -160,13 +170,13 @@
                         <a href="" class="link-box1"><span>Link text</span></a>
                     </div>
                     <div class="col-more">
-                        <a href="" title="Discover More">Discover More</a>
+                        <a href="" title="Discover More">Discover More<img src="images/core/next-white.png" alt="next" /></a>
                     </div>
                 </div>
                 <div class="page-col last">
                     <div class="col-about">
                         <h2>Featured Events</h2>
-                        <p>Whether it's meeting peers in your industry or socializing, we've got an event for you.</p>
+                        <p>Attend professional get-togethers, cultural conversations or community celebrations.</p>
                     </div>
                     <div class="col-content">
                         <a><img class="thumb" src="" alt="" /></a>
@@ -179,10 +189,11 @@
                         <a href="" class="link-box1"><span>Link text</span></a>
                     </div>
                     <div class="col-more">
-                        <a href="" title="See More">See More</a>
+                        <a href="" title="See More">See More<img src="images/core/next-white.png" alt="next" /></a>
                     </div>
                 </div>
             </div>
+            <!--end of column boxes-->
         </div>
     </div>
     <!--end wrap container-->
@@ -238,8 +249,9 @@
         </div>
     </div>
     <!--end footer-->
-    <div class="b"></div>
+    <div class="b"></div><!--replicates the footer shadow-->
     
+    <!--markup for the tell us form-->
     <div class="no-visible">
         <div id="tellus">
             <p>Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.</p>
@@ -247,34 +259,35 @@
                 <input type="hidden" id="date" name="date" />
                 <input id="name" type="text" name="name" class="required" placeholder="NAME" />
                 <input id="email" type="text" name="email" class="required email" placeholder="EMAIL" />
-                <select id="topic" name="topic">
+                <select id="topic" name="topic" class="required">
                     <option value="">SELECT</option>
                     <option value="t1">Topic 1</option>
                     <option value="t2">Topic 2</option>
                     <option value="t3">Topic 3</option>
                     <option value="t4">Topic 4</option>
                 </select>
-                <textarea id="comment" size="25" name="comment" class="required" minlength="10" placeholder="COMMENT"></textarea>
+                <textarea id="comment" name="comment" rows="25" cols="33" class="required" minlength="10" placeholder="COMMENT"></textarea>
                 <input type="submit" value="SUBMIT" class="submit" />
             </form>
+            <!--end of form-->
             <div id="thank-you" class="no-visible">
                 <p>Thank You for submitting your comment</p>
             </div>
+            <!--end of thank you-->
         </div>
     </div>
+    <!--end of markup for the tell us form-->
+    
     <script type="text/javascript" src="js/columnset.js" ></script><!--json column data script-->
     <script type="text/javascript" src="js/imagset.js" ></script><!--json image list script-->
     <script type="text/javascript" src="js/supersleight.plugin.js" ></script><!--supersleight png plugin script-->
     <script type="text/javascript" src="js/jquery.validate.min.js" ></script><!--form validate plugin script-->
     <script type="text/javascript" src="js/jquery.placeholder.min.js" ></script><!--form placeholder for non html5 browsers-->
-    <script type="text/javascript" src="js/home.js" ></script>
+    <script type="text/javascript" src="js/home.js" ></script><!--main script-->
     
-    <!--elements loaded to display actual items: header, menu and background-->
-    <script type="text/javascript">
-        //<![CDATA[
-        //Cufon.now();
-        //]]>
-    </script>
-    <!-- actual js and css for actual items-->
+    <!--end of markup for home template-->
+   
+     
+    
 </body>
 </html>

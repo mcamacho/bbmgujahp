@@ -1,6 +1,11 @@
+//company developer -> bbmg.com
+//developer -> mauricio camacho mcamacho@bbmg.com
+
+
 
 var rotate_int;//variable that receives the setinterval return
 var button_index = 0;//variable that receives the index button
+var actual_slide_class;
 
 var imageAbbrev = imageset.images;//use the json images var
 var totalImages = imageAbbrev.length;//total amount of images
@@ -18,19 +23,25 @@ var columnAbbrev = columnset.column;//use the json column var
         }
 })();
 
-function cssInit() {
-        //add the styles for the different backgrounds
-        cssString = '<style type="text/css">';
+function divBgInit() {
+        //add the css and the markup divs necesary for the different backgrounds
+        cssString = '<style type="text/css">\r\n';
         for (t in imageAbbrev){
-                cssString += '#bg-container.home' + t + ' {';
-		cssString += 'background-image: url(' + imageset.pathFolder + imageAbbrev[t].imgfile + ');';
-                cssString += '}';
+                cssString += '#bg-container div.home' + t + ' {';
+		cssString += 'background-image: url(' + imageset.pathFolder + imageAbbrev[t].imgfile + ')';
+                cssString += '}\r\n';
+                //add the div necesary for the different backgrounds
+                jQuery('<div class="home' + t + '"></div>').appendTo('#bg-container').css('display','none');
         }
         cssString += '</style>';
         jQuery(cssString).appendTo('head');
         
         //add class 'home0' to #bg-container
-        jQuery('#bg-container').addClass('home0');
+        jQuery('#bg-container div.home0').css('display','block');
+        actual_slide_class = 'home0';
+        
+        //add #over-bg to #bg-container
+        jQuery('<div id="over-bg"></div>').appendTo('#bg-container');
 }
 function colInit() {
         //include the data from the json script
@@ -46,7 +57,7 @@ function colInit() {
                 sourcelink = columnAbbrev[k].contentlink;
                 sourcelink = sourcelink.replace('://','%3A%2F%2F');
                 sourcelink = sourcelink.replace('/','%2F');
-                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>';
+                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>';
                 ttpath ='<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + columnAbbrev[k].contentlink + '" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
                 jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
                 jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
@@ -62,6 +73,7 @@ function colInit() {
 
 function navInit() {
         //construct the html
+        jQuery('<ul id="slide-nav"></ul>').appendTo('#nav-box');
         element = jQuery('<li></li>')
                 .appendTo('#slide-nav');
         jQuery('<a href="" class="navigator back">&#60</a>')
@@ -95,7 +107,7 @@ function navText(index){
 
 //automatic rotate function of background images
 function rotate() {
-        current = jQuery('#bg-container').attr('class');//the current bg-container class
+        current = actual_slide_class;//the current bg-container class
         classNumber = current.charAt(current.length-1) * 1;
         newbgclass = classNumber < (totalImages - 1) ? 'home' +  (classNumber + 1) : 'home0';
         bgClass(current, newbgclass);
@@ -103,10 +115,11 @@ function rotate() {
 };
 
 function bgClass(oldclass, newclass){
-        jQuery('#bg-container').css({ opacity: 0.2 })
-                .removeClass(oldclass)
-                .addClass(newclass)
-                .animate({ opacity: 1.0 }, fadeTime);
+        actual_slide_class = newclass;
+        oldc = '#bg-container div.' + oldclass;
+        newc = '#bg-container div.' + newclass;
+        jQuery(oldc).hide();
+        jQuery(newc).fadeIn(fadeTime);
 }
 
 function interButton(linum){
@@ -136,7 +149,7 @@ function rotControl(dir){
 function rotation(cur){
         jQuery('#bg-container').stop(true, true);//stop the animation
         clearInterval(rotate_int);//stop the rotate loop
-        current = jQuery('#bg-container').attr('class');//the current bg-container class
+        current = actual_slide_class;//the current bg-container class
         class_to = cur.data.classto;
         bgClass(current, class_to);
         
@@ -159,35 +172,31 @@ function interactInit(){
 function loadExt(event) {
         event.preventDefault();
         clearInterval(rotate_int);//stop the rotate loop
-        current = jQuery('#bg-container').attr('class');//the current bg-container class
+        current = actual_slide_class;//the current bg-container class
         classNumber = current.charAt(current.length-1) * 1;//json node index
-        linkpath =imageAbbrev[classNumber].link.path;//video uri path
-        //obtain the video uri path, width and height
-        if(linkpath.indexOf('object') > 0 || linkpath.indexOf('iframe') > 0){
-                s0 = linkpath.indexOf('src') + 5;
-                s1 = linkpath.indexOf('"',s0);
-                w0 = linkpath.indexOf('width') + 7;
-                w1 = linkpath.indexOf('"',w0);
-                h0 = linkpath.indexOf('height') + 8;
-                h1 = linkpath.indexOf('"',h0);
-                videowidth = linkpath.slice(w0,w1) * 1;
-                videoheight = linkpath.slice(h0,h1) * 1;
-                videopath = linkpath.slice(s0,s1);
+        linkpath =imageAbbrev[classNumber].link.path;//vimeo video number or uri page link
+        //conditional between uri and video number
+        if(linkpath.indexOf('http') < 0){
+                videowidth = 600;
+                videoheight = 450;
+                videopath = supports_video() ?
+                'http://player.vimeo.com/video/' + linkpath + '?title=0&amp;byline=0&amp;portrait=0' :
+                'http://vimeo.com/moogaloop.swf?clip_id=' + linkpath + '&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1&amp;autoplay=0&amp;loop=0';
                 videocaption = imageAbbrev[classNumber].link.optCaption;
                 videolink = imageAbbrev[classNumber].link.optLink;
-                videotitle = '<p>' + videocaption + '</p>' + '<a href="' + videolink + '" target="_blank" >' + videolink + '</a>';
+                videotitle = '<p><a href="' + videolink + '" target="_blank" >' + videocaption + '</a></p>';
                 jQuery.colorbox({title:videotitle, iframe:true, innerWidth:videowidth, innerHeight:videoheight, href:videopath});
         }else{
                 window.open(linkpath, '_blank');
         }
-        //else if (current == 'home2') {
-        //    jQuery.colorbox({inline:true, href:"#basic-form"});
-        //}
+}
+
+function supports_video() {
+        return !!document.createElement('video').canPlayType;
 }
 
 function ie6browser(){
         //png transparency
-        jQuery('#over-bg').supersleight();
         jQuery('#content').supersleight();
 }
 
@@ -227,8 +236,8 @@ function cleanform(){
 //----------------------------
 //jquery function that initiates when html is loaded
 jQuery(function () {
-        //construct and add the css styles for each background
-        cssInit();
+        //construct and add the div for each background
+        divBgInit();
         
         //initiate the h2, and lines text
         navText(0);
