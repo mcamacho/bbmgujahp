@@ -1,0 +1,17 @@
+/*use the basic character navigator*/
+#slide-nav a {
+        text-indent:0;
+        text-decoration:none;
+        background-image:none !important;
+}
+
+/*change the #content bg to gif*/
+#content {
+        background-image:url('../images/core/cont-bg.gif');
+}
+
+/*take out the #over-bg*/
+#over-bg {
+        position:absolute;
+        background-image:none;
+}
