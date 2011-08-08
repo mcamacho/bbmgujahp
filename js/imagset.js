@@ -35,8 +35,8 @@ var imageset = {
         {
             'imgfile': 'we_remember-bg.jpg',
             'title': 'We Remember',
-            'line1': 'We could only respond on 9/11 because we were ready on 9/10. Ten years ago,',
-            'line2': 'UJA+our agencies were there to help, even for those who never expected they\'d need it',
+            'line1': 'We could only respond on 9/11 because we were ready on 9/10.',
+            'line2': 'Ten years ago, UJA + our agencies sprung into action to help all New Yorkers.',
             'link': {
                'path': '9594822',
                'optCaption': 'Area for a video caption. Sit amet, consectetur adipiscing eif',

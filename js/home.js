@@ -5,7 +5,7 @@
 
 var rotate_int;//variable that receives the setinterval return
 var button_index = 0;//variable that receives the index button
-var actual_slide_class;
+var actual_slide_class;//slide checked class name
 
 var imageAbbrev = imageset.images;//use the json images var
 var totalImages = imageAbbrev.length;//total amount of images
@@ -166,7 +166,7 @@ function interactInit(){
                                                function(){jQuery('#nav-box h2, #nav-box p').removeClass('hover');});
         
         //add interaction to the tell us button
-        jQuery(".link-box2").colorbox({innerWidth:"450px", innerHeight:"470px", scrolling:false, inline:true, href:"#tellus"});
+        jQuery(".link-box2").colorbox({innerWidth:"450px", innerHeight:"470px", scrolling:false, inline:true, href:"#tellus", onOpen:tellusCheck});
 }
 
 function loadExt(event) {
@@ -200,6 +200,12 @@ function ie6browser(){
         jQuery('#content').supersleight();
 }
 
+function tellusCheck(){
+        if ( jQuery('#tellus-form').css('display') == 'none'){
+                jQuery('#tellus-form').show();
+                jQuery('#thank-you').hide();
+        }
+}
 function tellusInit(){
         jQuery('#tellus-form').validate({
                 submitHandler: function(form) {
