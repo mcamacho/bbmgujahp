@@ -57,7 +57,7 @@ function colInit() {
                 sourcelink = columnAbbrev[k].contentlink;
                 sourcelink = sourcelink.replace('://','%3A%2F%2F');
                 sourcelink = sourcelink.replace('/','%2F');
-                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=20" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:20px;" allowTransparency="true"></iframe>';
+                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:21px;position:relative;top:1px;" allowTransparency="true"></iframe>';
                 ttpath ='<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + columnAbbrev[k].contentlink + '" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
                 jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
                 jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
@@ -100,9 +100,10 @@ function navInit() {
 }
 
 function navText(index){
-        jQuery('#nav-box h2').text(imageAbbrev[index].title);
-        jQuery('#nav-box p:eq(0)').text(imageAbbrev[index].line1);
-        jQuery('#nav-box p:eq(1)').text(imageAbbrev[index].line2);
+        jQuery('#nav-box h2').html(imageAbbrev[index].title);
+        Cufon.replace('#nav-box h2', { fontFamily: 'FranklinGothicURW-Dem' });
+        jQuery('#nav-box p:eq(0)').html(imageAbbrev[index].line1);
+        jQuery('#nav-box p:eq(1)').html(imageAbbrev[index].line2);
 }
 
 //automatic rotate function of background images
@@ -179,9 +180,7 @@ function loadExt(event) {
         if(linkpath.indexOf('http') < 0){
                 videowidth = 600;
                 videoheight = 450;
-                videopath = supports_video() ?
-                'http://player.vimeo.com/video/' + linkpath + '?title=0&amp;byline=0&amp;portrait=0' :
-                'http://vimeo.com/moogaloop.swf?clip_id=' + linkpath + '&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=00adef&amp;fullscreen=1&amp;autoplay=0&amp;loop=0';
+                videopath = 'http://player.vimeo.com/video/' + linkpath + '?title=0&amp;byline=0&amp;portrait=0';
                 videocaption = imageAbbrev[classNumber].link.optCaption;
                 videolink = imageAbbrev[classNumber].link.optLink;
                 videotitle = '<p><a href="' + videolink + '" target="_blank" >' + videocaption + '</a></p>';
@@ -190,14 +189,13 @@ function loadExt(event) {
                 window.open(linkpath, '_blank');
         }
 }
-
-function supports_video() {
-        return !!document.createElement('video').canPlayType;
-}
-
-function ie6browser(){
-        //png transparency
-        jQuery('#content').supersleight();
+function assignCufon(){
+        Cufon.replace('div.col-about h2', { fontFamily: 'FranklinGothicURW-Dem' });
+        Cufon.replace('#find-help, #donate', { fontFamily: 'FranklinGothicURW-Dem' });
+        Cufon.replace('div.col-content h3 a', { fontFamily: 'FranklinGothicURW-Dem' });
+        Cufon.replace('div.link-boxes span', { fontFamily: 'FranklinGothicURW-Dem' });
+        Cufon.replace('div.col-more a', { fontFamily: 'FranklinGothicURW-Dem' });
+        Cufon.replace('div.foot-col h2 a', { fontFamily: 'FranklinGothicURW-Dem' });
 }
 
 function tellusCheck(){
@@ -213,7 +211,8 @@ function tellusInit(){
                 },
                 debug: true
         });
-
+        
+        $('#name, #email, #comment').placeholder();
         d = new Date();
         curr_date = d.getMonth() + "-" + d.getDate() + "-" + d.getFullYear();
         jQuery('#date').attr('value',curr_date);
@@ -237,6 +236,11 @@ function cleanform(){
                 .not(':submit, :hidden')
                 .val('')
                 .removeAttr('checked');
+}
+
+function ie6browser(){
+        //png transparency
+        jQuery('#content').supersleight();
 }
 
 //----------------------------
@@ -263,10 +267,13 @@ jQuery(function () {
         //add interactivity
         interactInit();
         
+        //assign cufon font
+        assignCufon();
+                
+        //add date input field and validation functionality to tellus form
+        tellusInit();
+        
         //add png ie6 transparency
         ie6browser();
-        
-        //add date input field and validation functionality to tellus form
-        tellusInit()
 });
 

@@ -1,7 +1,7 @@
 //html markup copied from http://www.ujafedny.org/
 var content = '<a id="logo" href="/"><span>Back to Home</span></a>'
 +'<div id="utility">'
-+'    <iframe id="welcomeFrame" src="http://www.ujafedny.org//UJAFNY/code/pages/LoginWelcome.php" scrolling="no" frameborder="no"></iframe>'
+//+'    <iframe id="welcomeFrame" src="http://www.ujafedny.org//UJAFNY/code/pages/LoginWelcome.php" scrolling="no" frameborder="no"></iframe>'
 +'    <div id="search_box">'
 +'        <form action="/search/" method="get">'
 +'            <input id="search_box-query" type="text" name="query" />'

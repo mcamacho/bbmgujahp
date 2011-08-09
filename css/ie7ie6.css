@@ -3,3 +3,10 @@ div.link-boxes a.link-box1 {
     padding-top:11px;
     height:45px;
 }
+div.link-boxes a.link-box1 img {
+margin-bottom: -2px;
+}
+div.link-boxes a.link-box2 img {
+margin-top: 0;
+margin-bottom:0;
+}

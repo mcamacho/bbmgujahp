@@ -1,9 +1,9 @@
 //js with json list of image parameters
-// @fadeTime sets the fading time for the slide image animation
-// @iteration sets the iteration time between each image
-// @pathfolder is the the slide images folder
-// @link -> path could be either a url or the vimeo video number
-// @link -> optCaption & optLink are only for videos
+// fadeTime sets the fading time for the slide image animation
+// iteration sets the iteration time between each image
+// pathfolder is the the slide images folder
+// link -> path could be either a url or the vimeo video number
+// link -> optCaption & optLink are only for videos
  
 var imageset = {
     'fadeTime':1000,

@@ -74,7 +74,7 @@ table {
 		top:-515px;
 		width:940px;
 		margin:0 auto;
-		padding: 0 31px 22px 27px;
+		padding: 0 27px 22px 27px;
 		background-color:transparent;
 		background-image:url(../images/core/cont-bg.png);
 		background-position:50% 0%;
@@ -113,9 +113,9 @@ table {
 			background-color:rgba(255, 255, 255, 0.8);
 		}
 		#nav-box h2{
-			font-family: FranklinGothicURW-Dem,arial,helvetica,clean,sans-serif;
 			font-size: 19px;
 			line-height: 25px;
+			height:25px;
 		}
 		#nav-box p{
 			height:14px;
@@ -166,12 +166,11 @@ table {
 			text-decoration:none;
 			top:270px;
 			width:140px;
-			line-height:80px;
-			height:80px;
+			height:51px;
+			padding-top:29px;
 			color:#ffffff;
 			text-align:center;
 			font-size:22px;
-			font-family: FranklinGothicURW-Dem,arial,helvetica,clean,sans-serif;
 		}
 		#find-help {
 			background-color:#d95934;
@@ -208,10 +207,11 @@ table {
 		div.col-about h2 {
 			font-family: FranklinGothicURW-Boo,arial,helvetica,clean,sans-serif;
 			line-height:21px;
+			height:21px;
 			font-size:17px;
 		}
 		div.col-about p {
-			height:26px;
+			height:28px;
 			overflow:hidden;
 		}
 		div.col-content {
@@ -232,7 +232,6 @@ table {
 		div.col-content h3 a{
 			height:34px;
 			overflow:hidden;
-			font-family: FranklinGothicURW-Dem,arial,helvetica,clean,sans-serif;
 			font-size:14px;
 			color:#00538e;
 		}
@@ -247,7 +246,7 @@ table {
 			padding:9px 0;
 		}
 		div.col-content div.col-social iframe{
-			margin-right:9px;
+			margin-right:20px;
 		}
 		div.col-content a {
 			display:block;
@@ -279,7 +278,6 @@ table {
 			margin-bottom:5px;
 		}
 		div.link-boxes a.link-box1 span{
-			font-family: FranklinGothicURW-Dem,arial,helvetica,clean,sans-serif;
 			display:table-cell;
 			height:inherit;
 			vertical-align:middle;
@@ -290,19 +288,19 @@ table {
 		}
 		div.link-boxes a.link-box2 span{
 			padding:0 6px;
-			font-family: FranklinGothicURW-Dem,arial,helvetica,clean,sans-serif;
 			display:block;
 			color:#ffffff;
 			height:36px;
 			line-height:36px;
-			background-color:#fdb827;
-			-moz-border-radius: 7px;
-			border-radius: 7px;
-			background:transparent url(../images/core/link-box2.jpg) repeat-x;
+			background:transparent url(../images/core/link-box2-bg.png) no-repeat;
+		}
+		div.link-boxes a.link-box2 .cufon,
+		div.link-boxes a.link-box2 img{
+			margin-top:11px;
 		}
 		
 		div.col-more {
-			background-color:#2280B2;
+			background:#2280B2 url(../images/core/col-footer-bg.jpg) repeat-x;
 			padding:9px;
 			height:22px;
 		}
@@ -319,24 +317,37 @@ table {
 	overflow:hidden;
 	width:940px;
 	margin:0 auto;
-	padding: 22px  31px 27px;
+	padding: 22px 27px;
 	background: transparent url(../images/core/doc-tile.png) repeat-y top center;
 }
-
+	
+	div.foot-col a:link{
+		text-decoration:none;
+		color:#000000;
+	}
+	div.foot-col a:hover{
+		text-decoration:underline;
+	}
 	div.foot-col {
+		height:260px;
 		width:146px;
 		float:left;
 		margin-right:10px;
 		background:transparent url(../images/core/foot-border.jpg) no-repeat top right;
 	}
+	div.foot-col ul {
+		font-size:11px;
+		line-height:18px;
+	}
 	div.foot-col.last {
 		background-image:none;
 	}
 		div.foot-col h2{
+			padding:0 0 10px;
+		}
+		div.foot-col h2 a:link{
 			font-size:14px;
 			color:#00438e;
-			padding:0 0 10px;
-			font-family: FranklinGothicURW-Dem,arial,helvetica,clean,sans-serif;
 		}
 		div.last {
 			margin-right:0;
@@ -366,21 +377,23 @@ a {
 #tellus-form {
 	padding:10px;
 }
-	#tellus-form input,
-	#tellus-form select,
-	#tellus-form textarea {
+	#name,
+	#email,
+	#comment {
 		width:392px;
 		margin-top:15px;
-		padding:3px 2px 3px 7px; 
+		padding:3px 2px 0 7px; 
 	}
 	
-	#tellus-form select {
-		margin-left:10px;
+	#topic {
+		margin-top:15px;
+		width:405px;
 	}
-	#tellus-form textarea {
+	#comment {
 		height:200px;
 	}
 	#tellus-form input[type="submit"] {
+		margin-top:15px;
 		display:block;
 		position:relative;
 		left:335px;
