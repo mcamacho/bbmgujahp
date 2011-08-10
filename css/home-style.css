@@ -56,6 +56,7 @@ table {
 }
 	#bg-container {
 		height:515px;
+		overflow:hidden;
 	}
 	#bg-container div{
 		height:515px;
