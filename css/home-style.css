@@ -213,7 +213,7 @@ table {
 		}
 		div.col-about p {
 			height:28px;
-			overflow:hidden;
+			/*overflow:hidden;*/
 		}
 		div.col-content {
 			border:1px solid #2280B2;
@@ -245,10 +245,9 @@ table {
 		}
 		div.col-content div.col-social {
 			padding:9px 0;
-			text-align:center;
 		}
 		div.col-content div.col-social iframe{
-			margin-right:20px;
+			margin-right:7px;
 		}
 		div.col-content a {
 			display:block;
