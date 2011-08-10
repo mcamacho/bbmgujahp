@@ -7,7 +7,7 @@
  
 var imageset = {
     'fadeTime':1000,
-    'iteration':5000,
+    'iteration':10000,
     'pathFolder':'home-assets/',
     'images': [
         {

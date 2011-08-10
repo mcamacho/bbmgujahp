@@ -244,6 +244,7 @@ table {
 		}
 		div.col-content div.col-social {
 			padding:9px 0;
+			text-align:center;
 		}
 		div.col-content div.col-social iframe{
 			margin-right:20px;
@@ -268,13 +269,13 @@ table {
 			position:relative;
 			text-decoration:none;
 			font-size:14px;
+			color:#00538e;
 		}
 		div.link-boxes a.link-box1 {
 			padding:0 6px;
 			height:56px;
 			overflow:hidden;
 			border:1px solid #b2e6f2;
-			color:#00538e;
 			margin-bottom:5px;
 		}
 		div.link-boxes a.link-box1 span{
@@ -289,7 +290,6 @@ table {
 		div.link-boxes a.link-box2 span{
 			padding:0 6px;
 			display:block;
-			color:#ffffff;
 			height:36px;
 			line-height:36px;
 			background:transparent url(../images/core/link-box2-bg.png) no-repeat;
@@ -330,7 +330,7 @@ table {
 	}
 	div.foot-col {
 		height:260px;
-		width:146px;
+		width:147px;
 		float:left;
 		margin-right:10px;
 		background:transparent url(../images/core/foot-border.jpg) no-repeat top right;
