@@ -3,10 +3,9 @@
     background-color:#ffffff;
     filter: alpha(opacity = 80);
 }
-div.link-boxes a.link-box2 img {
-margin-top: 0;
-margin-bottom:4px;
-}
-div.link-boxes a.link-box1 img {
-margin-bottom: 2px;
+
+#find-help ,
+#donate {
+        height:52px;
+        padding-top:28px;
 }

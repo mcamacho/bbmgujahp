@@ -167,8 +167,8 @@ table {
 			text-decoration:none;
 			top:270px;
 			width:140px;
-			height:51px;
-			padding-top:29px;
+			height:50px;
+			padding-top:30px;
 			color:#ffffff;
 			text-align:center;
 			font-size:22px;
@@ -195,6 +195,7 @@ table {
 		}
 		div.page-col p img,
 		div.page-col span.link-span img,
+		div.page-col a.link-box1 img,
 		div.col-more img {
 			vertical-align: middle;
 			margin-left: 3px;
@@ -271,28 +272,25 @@ table {
 			font-size:14px;
 			color:#00538e;
 		}
-		div.link-boxes a.link-box1 {
+		div.link-boxes div.link-box1 {
 			padding:0 6px;
 			height:56px;
 			overflow:hidden;
 			border:1px solid #b2e6f2;
 			margin-bottom:5px;
 		}
-		div.link-boxes a.link-box1 span.link-span{
-			display:table-cell;
-			height:inherit;
-			vertical-align:middle;
-		}
 		div.link-boxes a.link-box2 {
 			padding-top:10px;
 			height:48px;
 		}
 		div.link-boxes a.link-box2 span.link-span{
-			padding:0 6px;
+			padding:0px 6px;
 			display:block;
 			height:36px;
-			line-height:36px;
 			background:transparent url(../images/core/link-box2-bg.png) no-repeat;
+		}
+		div.link-boxes a.link-box2 span.text-box2{
+			height:14px;
 		}
 		div.link-boxes a.link-box2 .cufon,
 		div.link-boxes a.link-box2 img{

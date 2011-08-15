@@ -53,11 +53,19 @@ function colInit() {
                 jQuery('div.col-content:eq(' + k + ') p a').html(columnAbbrev[k].shorttext + nextIcon);
                 
                 jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0)').attr('href',columnAbbrev[k].textlink1.link);
-                jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0) span').html(columnAbbrev[k].textlink1.text  + nextIcon);
+                jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0)').html(columnAbbrev[k].textlink1.text  + nextIcon);
+                
                 if(jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)')){
                         jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)').attr('href',columnAbbrev[k].textlink2.link);
-                        jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1) span').html(columnAbbrev[k].textlink2.text  + nextIcon);
+                        jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)').html(columnAbbrev[k].textlink2.text  + nextIcon);
                 }
+        });
+        $thele = jQuery('div.link-boxes a.link-box1');
+        $thele.each(function(t,val){
+                $the = jQuery('div.link-boxes a.link-box1:eq(' + t + ')');
+                $the.height() > 17 ?
+                        $the.css('margin-top','12px') :
+                        $the.css('margin-top','19px');
         });
 }
 
@@ -183,7 +191,7 @@ function assignCufon(){
         Cufon.replace('div.col-about h2', { fontFamily: 'FranklinGothicURW-Dem' });
         Cufon.replace('#find-help, #donate', { fontFamily: 'FranklinGothicURW-Dem' });
         Cufon.replace('div.col-content h3 a', { fontFamily: 'FranklinGothicURW-Dem' });
-        Cufon.replace('div.link-boxes span', { fontFamily: 'FranklinGothicURW-Dem' });
+        Cufon.replace('div.link-boxes a', { fontFamily: 'FranklinGothicURW-Dem' });
         Cufon.replace('div.col-more a', { fontFamily: 'FranklinGothicURW-Dem' });
         Cufon.replace('div.foot-col h2 a', { fontFamily: 'FranklinGothicURW-Dem' });
 }
@@ -229,7 +237,7 @@ function cleanform(){
 function addsocial(){
         jQuery(columnAbbrev).each(function(k,val){
                 sourcelink = columnAbbrev[k].contentlink;
-                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:21px;position:relative;top:1px;" allowTransparency="true"></iframe>';
+                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:48px; height:21px;position:relative;top:1px;" allowTransparency="true"></iframe>';
                 ttpath ='<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + sourcelink + '" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
                 jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
                 jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
