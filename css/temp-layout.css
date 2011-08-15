@@ -7,10 +7,13 @@ body {
 }
 
 /* Header */
+div.t {
+    height:2px;
+}
 div.m {
     width: 940px;
     margin: 0 auto;
-    padding: 15px 27px 22px 27px;
+    padding: 15px 31px 22px 27px;
     background: url(http://www.ujafedny.org/themes/ujafny/images/core/doc-tile.png) 0 0 repeat-y transparent;
 }
 #header {

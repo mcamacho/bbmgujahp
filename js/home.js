@@ -1,8 +1,6 @@
 //company developer -> bbmg.com
 //developer -> mauricio camacho mcamacho@bbmg.com
 
-
-
 var rotate_int;//variable that receives the setinterval return
 var button_index = 0;//variable that receives the index button
 var actual_slide_class;//slide checked class name
@@ -26,13 +24,13 @@ var columnAbbrev = columnset.column;//use the json column var
 function divBgInit() {
         //add the css and the markup divs necesary for the different backgrounds
         cssString = '<style type="text/css">\r\n';
-        for (t in imageAbbrev){
+        jQuery(imageAbbrev).each(function(t,val){
                 cssString += '#bg-container div.home' + t + ' {';
 		cssString += 'background-image: url(' + imageset.pathFolder + imageAbbrev[t].imgfile + ')';
                 cssString += '}\r\n';
                 //add the div necesary for the different backgrounds
                 jQuery('<div class="home' + t + '"></div>').appendTo('#bg-container').css('display','none');
-        }
+        });
         cssString += '</style>';
         jQuery(cssString).appendTo('head');
         
@@ -46,7 +44,7 @@ function divBgInit() {
 function colInit() {
         //include the data from the json script
         nextIcon ='<img src="images/core/next.png" alt="next" />';
-        for (k in columnAbbrev){
+        jQuery(columnAbbrev).each(function(k,val){
                 imagepath = columnset.pathFolder + columnAbbrev[k].imgfile;
                 jQuery('div.col-content:eq(' + k + ') > a').attr('href',columnAbbrev[k].contentlink);
                 jQuery('div.col-content:eq(' + k + ') img.thumb').attr({'src': imagepath, 'alt': columnAbbrev[k].header});
@@ -54,21 +52,13 @@ function colInit() {
                 jQuery('div.col-content:eq(' + k + ') h3 a').html(columnAbbrev[k].header);
                 jQuery('div.col-content:eq(' + k + ') p a').html(columnAbbrev[k].shorttext + nextIcon);
                 
-                sourcelink = columnAbbrev[k].contentlink;
-                sourcelink = sourcelink.replace('://','%3A%2F%2F');
-                sourcelink = sourcelink.replace('/','%2F');
-                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:21px;position:relative;top:1px;" allowTransparency="true"></iframe>';
-                ttpath ='<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + columnAbbrev[k].contentlink + '" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
-                jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
-                jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
-                
                 jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0)').attr('href',columnAbbrev[k].textlink1.link);
                 jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(0) span').html(columnAbbrev[k].textlink1.text  + nextIcon);
                 if(jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)')){
                         jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)').attr('href',columnAbbrev[k].textlink2.link);
                         jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1) span').html(columnAbbrev[k].textlink2.text  + nextIcon);
                 }
-        }
+        });
 }
 
 function navInit() {
@@ -76,24 +66,24 @@ function navInit() {
         jQuery('<ul id="slide-nav"></ul>').appendTo('#nav-box');
         element = jQuery('<li></li>')
                 .appendTo('#slide-nav');
-        jQuery('<a href="" class="navigator back">&#60</a>')
+        jQuery('<a href="" class="navigator back">&#60;</a>')
                 .appendTo(element)
                 .click({direction:'backward'}, rotControl);
-        for (t in imageAbbrev){
+        jQuery(imageAbbrev).each(function(t,val){
                 element = jQuery('<li></li>')
                         .appendTo('#slide-nav');
-                jQuery('<a href="" class="button">O</a>')
+                jQuery('<a href="" class="carnav-button">O</a>')
                         .appendTo(element)
                         .click({classto:'home' + t, button:t}, rotation);
-        }
+        });
         element = jQuery('<li></li>')
                 .appendTo('#slide-nav');
-        jQuery('<a href="" class="navigator fore">&#62</a>')
+        jQuery('<a href="" class="navigator fore">&#62;</a>')
                 .appendTo(element)
                 .click({direction:'foreward'}, rotControl);
         
         //add class 'selected' to first li of the nav
-        jQuery('#slide-nav a.button:eq(0)').addClass('selected');
+        jQuery('#slide-nav a.carnav-button:eq(0)').addClass('selected');
         jQuery('#slide-nav a').click(function(event){event.preventDefault();});
         jQuery('#slide-nav a.navigator').hover( function () {jQuery(this).addClass("hover");},
                                                 function () {jQuery(this).removeClass("hover");});    
@@ -127,7 +117,7 @@ function interButton(linum){
         button_index = linum;
         navText(linum);
         jQuery('#slide-nav a.selected').removeClass('selected');
-        jQuery('#slide-nav a.button:eq('+linum+')').addClass('selected');
+        jQuery('#slide-nav a.carnav-button:eq('+linum+')').addClass('selected');
 }
 
 //call each time a direction button is clicked
@@ -180,7 +170,7 @@ function loadExt(event) {
         if(linkpath.indexOf('http') < 0){
                 videowidth = 600;
                 videoheight = 450;
-                videopath = 'http://player.vimeo.com/video/' + linkpath + '?title=0&amp;byline=0&amp;portrait=0';
+                videopath = imageAbbrev[classNumber].link.source == 'vimeo' ? 'http://player.vimeo.com/video/' + linkpath + '?title=0&amp;byline=0&amp;portrait=0' : 'http://www.youtube.com/embed/' + linkpath ;
                 videocaption = imageAbbrev[classNumber].link.optCaption;
                 videolink = imageAbbrev[classNumber].link.optLink;
                 videotitle = '<p><a href="' + videolink + '" target="_blank" >' + videocaption + '</a></p>';
@@ -208,26 +198,24 @@ function tellusInit(){
         jQuery('#tellus-form').validate({
                 submitHandler: function(form) {
                         ajaxrequest();
-                },
-                debug: true
+                }
         });
         
-        $('#name, #email, #comment').placeholder();
+        jQuery('#name, #email, #comment').placeholder();
         d = new Date();
         curr_date = d.getMonth() + "-" + d.getDate() + "-" + d.getFullYear();
         jQuery('#date').attr('value',curr_date);
 }
 function ajaxrequest(){
         jQuery.ajax({
-                type: "POST",
-                url: "feedback.php",
-                data: jQuery('#tellus-form').serialize(),
-                success: function(msg){
-                        if( msg.indexOf(':0,') < 0 && msg.indexOf(':103,') < 0) {
-                                cleanform();
-                                jQuery('#tellus-form').hide();
-                                jQuery('#thank-you').show();
-                        }
+                type: 'POST',
+                dataType: 'json',
+                url: 'http://dev.ujafedny.org/home-2/home2/feedback/',
+                data: jQuery('#tellus-form').serializeArray(),
+                complete: function(msg){
+                        cleanform();
+                        jQuery('#tellus-form').hide();
+                        jQuery('#thank-you').show();
                 }
         });
 }
@@ -238,9 +226,18 @@ function cleanform(){
                 .removeAttr('checked');
 }
 
+function addsocial(){
+        jQuery(columnAbbrev).each(function(k,val){
+                sourcelink = columnAbbrev[k].contentlink;
+                fbpath = '<iframe src="http://www.facebook.com/plugins/like.php?href=' + sourcelink +'&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:21px;position:relative;top:1px;" allowTransparency="true"></iframe>';
+                ttpath ='<a href="http://twitter.com/share" class="twitter-share-button" data-url="' + sourcelink + '" data-count="none">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>';
+                jQuery(fbpath).appendTo('div.col-social:eq(' + k + ')');
+                jQuery(ttpath).appendTo('div.col-social:eq(' + k + ')');
+        });
+}
 function ie6browser(){
         //png transparency
-        jQuery('#content').supersleight();
+        jQuery('#content-home').supersleight();
 }
 
 //----------------------------
@@ -272,6 +269,9 @@ jQuery(function () {
                 
         //add date input field and validation functionality to tellus form
         tellusInit();
+        
+        //add social buttons
+        addsocial();
         
         //add png ie6 transparency
         ie6browser();

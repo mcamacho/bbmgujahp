@@ -16,9 +16,7 @@ var imageset = {
             'line1': 'Holocaust survivors living in New York are among the poorest of low-income',
             'line2': 'Jews in the city. Together, you+UJA help them live their lives with dignity.',
             'link': {
-               'path': 'http://www.bbmg.com',
-               'optCaption': '',
-               'optLink': ''
+               'path': 'http://www.bbmg.com'
                 }
             },
         {
@@ -27,9 +25,7 @@ var imageset = {
             'line1': 'We\'re leveling the playing field so first generation Ethiopian Israelis can achieve',
             'line2': 'the same successes as other Israelis. Another reason Israel+UJA are good together.',
             'link': {
-               'path': 'http://www.ujafedny.org',
-               'optCaption': '',
-               'optLink': ''
+               'path': 'http://www.ujafedny.org'
                 }
             },
         {
@@ -38,9 +34,10 @@ var imageset = {
             'line1': 'We could only respond on 9/11 because we were ready on 9/10.',
             'line2': 'Ten years ago, UJA + our agencies sprung into action to help all New Yorkers.',
             'link': {
-               'path': '9594822',
-               'optCaption': 'Area for a video caption. Sit amet, consectetur adipiscing eif',
-               'optLink': 'http://www.ujafedny.org'
+                'source': 'vimeo',
+                'path': '9594822',
+                'optCaption': 'Area for a video caption. Sit amet, consectetur adipiscing eif',
+                'optLink': 'http://www.ujafedny.org'
                 }
             },
         {
@@ -49,9 +46,10 @@ var imageset = {
             'line1': 'Programs like Eden Village connect kids to their Jewish roots while promoting a',
             'line2': 'sustainable world. Discover how you+UJA can help deepen a child\'s Jewish identity.',
             'link': {
-               'path': 'http://www.ujafedny.org',
-               'optCaption': '',
-               'optLink': ''
+               'source': 'youtube',
+               'path': 'ObwsyiIuOkg',
+               'optCaption': 'Area for a video caption. Sit amet, consectetur adipiscing eif',
+               'optLink': 'http://www.ujafedny.org'
                 }
             },
         {
@@ -60,9 +58,7 @@ var imageset = {
             'line1': 'Thanks to our network of agencies, we\'re ensuring community members of all ages',
             'line2': 'enjoy a healthy lifestyle. No wonder UJA+JCC are good together.',
             'link': {
-               'path': 'http://www.ujafedny.org/our-mission/',
-               'optCaption': '',
-               'optLink': ''
+               'path': 'http://www.ujafedny.org/our-mission/'
                 }
             }
     ]

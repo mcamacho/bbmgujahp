@@ -70,12 +70,12 @@ table {
 			background-image:url(../images/core/over-bg.png);
 		}
 		
-	#content {
+	#content-home {
 		position:relative;
 		top:-515px;
 		width:940px;
 		margin:0 auto;
-		padding: 0 27px 22px 27px;
+		padding: 0 31px 22px 27px;
 		background-color:transparent;
 		background-image:url(../images/core/cont-bg.png);
 		background-position:50% 0%;
@@ -194,7 +194,7 @@ table {
 			font-size:11px;
 		}
 		div.page-col p img,
-		div.page-col span img,
+		div.page-col span.link-span img,
 		div.col-more img {
 			vertical-align: middle;
 			margin-left: 3px;
@@ -278,7 +278,7 @@ table {
 			border:1px solid #b2e6f2;
 			margin-bottom:5px;
 		}
-		div.link-boxes a.link-box1 span{
+		div.link-boxes a.link-box1 span.link-span{
 			display:table-cell;
 			height:inherit;
 			vertical-align:middle;
@@ -287,7 +287,7 @@ table {
 			padding-top:10px;
 			height:48px;
 		}
-		div.link-boxes a.link-box2 span{
+		div.link-boxes a.link-box2 span.link-span{
 			padding:0 6px;
 			display:block;
 			height:36px;
@@ -317,7 +317,7 @@ table {
 	overflow:hidden;
 	width:940px;
 	margin:0 auto;
-	padding: 22px 27px;
+	padding: 22px 31px 22px 27px;
 	background: transparent url(../images/core/doc-tile.png) repeat-y top center;
 }
 	
@@ -355,7 +355,7 @@ table {
 		div.no-visible {
 			display:none;
 		}
-div.b {
+div.bshad {
 	position:relative;
 	top:23px;
 	width:998px;

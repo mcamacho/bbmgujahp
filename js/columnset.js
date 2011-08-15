@@ -13,7 +13,7 @@ var columnset = {
             },
         {
             'imgfile': 'uja-boy-thumb.jpg',
-            'contentlink': 'http://www.ujafedny.org',
+            'contentlink': 'http://www.ujafedny.org/uja-federation-news-2/view/fellowship-brings-young-leaders-to-israel/',
             'header': 'Artificial Corneas Come to Israel',
             'shorttext': 'Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.',
             'textlink1': {'link': 'http://www.ujafedny.org/uja-federation-news-2/view/fellowship-brings-young-leaders-to-israel/', 'text': 'Fellowship Brings Young Leaders to Israel'},
@@ -21,7 +21,7 @@ var columnset = {
             },
         {
             'imgfile': 'uja-boy-thumb.jpg',
-            'contentlink': 'http://www.ujafedny.org',
+            'contentlink': 'http://www.ujafedny.org/get/26697/',
             'header': 'Volunteer to Adopt A Grandparent',
             'shorttext': 'Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.',
             'textlink1': {'link': 'http://www.ujafedny.org/get/26697/', 'text': 'Advocate: Check Out Our Public Policy Agenda'},
@@ -29,7 +29,7 @@ var columnset = {
             },
         {
             'imgfile': 'uja-boy-thumb.jpg',
-            'contentlink': 'http://www.ujafedny.org',
+            'contentlink': 'http://www.ujafedny.org/the-wall-street-dinner/',
             'header': 'Israel Day Parade',
             'shorttext': 'Sit amet, consectetur adipiscing elit. Fusce scelerisque cursus convallis.',
             'textlink1': {'link': 'http://www.ujafedny.org/the-wall-street-dinner/', 'text': 'Wall Street Dinner'},
