@@ -217,7 +217,7 @@ function ajaxrequest(){
         jQuery.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'http://dev.ujafedny.org/home-2/home2/feedback/',
+                url: 'http://dev.ujafedny.org/home-2/feedback/',
                 data: jQuery('#tellus-form').serializeArray(),
                 complete: function(msg){
                         cleanform();
