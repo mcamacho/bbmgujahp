@@ -123,7 +123,6 @@ table {
 			overflow:hidden;
 			font-size:12px;
 		}
-		#nav-box h2.hover,
 		#nav-box p.hover {
 			text-decoration:underline;
 		}
@@ -198,7 +197,7 @@ table {
 		div.page-col a.link-box1 img,
 		div.col-more img {
 			vertical-align: middle;
-			margin-left: 3px;
+			/*margin-left: 3px;*/
 		}
 		div.col-about {
 			color:#eeeeee;
@@ -224,6 +223,9 @@ table {
 			overflow:hidden;
 			background-color:#f0f0f1;
 		}
+		div.col-content p a:hover{
+			text-decoration:underline;
+		}
 		div.col-content img.thumb {
 			height:130px;
 		}
@@ -238,7 +240,11 @@ table {
 			color:#00538e;
 		}
 		div.col-content h3 a:hover{
-			text-decoration:underline;
+			/*text-decoration:underline;*/
+		}
+		div.col-content h3 a:hover .cufon{
+			border-bottom:1px solid #00538e;
+			height:13px !important;
 		}
 		div.col-content p {
 			height:27px;
@@ -278,6 +284,11 @@ table {
 			overflow:hidden;
 			border:1px solid #b2e6f2;
 			margin-bottom:5px;
+		}
+		div.link-boxes div.link-box1 a:hover .cufon,
+		div.link-boxes a.link-box2:hover .cufon {
+			border-bottom:1px solid #00538e;
+			height:13px !important;
 		}
 		div.link-boxes a.link-box2 {
 			padding-top:10px;

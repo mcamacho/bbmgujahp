@@ -12,38 +12,10 @@ var fadeTime = imageset.fadeTime;//use the json fade var
 
 var columnAbbrev = columnset.column;//use the json column var
 
-//preload images
-(function() {
-        imgpreload = new Image();
-        qtt = imageAbbrev.length;
-        for(i=0;i<qtt;i++){
-                imgpreload.src = imageset.pathFolder + imageAbbrev[i].imgfile;
-        }
-})();
-
-function divBgInit() {
-        //add the css and the markup divs necesary for the different backgrounds
-        cssString = '<style type="text/css">\r\n';
-        jQuery(imageAbbrev).each(function(t,val){
-                cssString += '#bg-container div.home' + t + ' {';
-		cssString += 'background-image: url(' + imageset.pathFolder + imageAbbrev[t].imgfile + ')';
-                cssString += '}\r\n';
-                //add the div necesary for the different backgrounds
-                jQuery('<div class="home' + t + '"></div>').appendTo('#bg-container').css('display','none');
-        });
-        cssString += '</style>';
-        jQuery(cssString).appendTo('head');
-        
-        //add class 'home0' to #bg-container
-        jQuery('#bg-container div.home0').css('display','block');
-        actual_slide_class = 'home0';
-        
-        //add #over-bg to #bg-container
-        jQuery('<div id="over-bg"></div>').appendTo('#bg-container');
-}
 function colInit() {
         //include the data from the json script
         nextIcon ='<img src="images/core/next.png" alt="next" />';
+        //to all the link-box1 boxes
         jQuery(columnAbbrev).each(function(k,val){
                 imagepath = columnset.pathFolder + columnAbbrev[k].imgfile;
                 jQuery('div.col-content:eq(' + k + ') > a').attr('href',columnAbbrev[k].contentlink);
@@ -60,6 +32,9 @@ function colInit() {
                         jQuery('div.link-boxes:eq(' + k + ') a.link-box1:eq(1)').html(columnAbbrev[k].textlink2.text  + nextIcon);
                 }
         });
+        //to the link-box2 box
+        jQuery('a.link-box2 span.text-box2').html('TELL US WHAT YOU THINK<img src="images/core/next.png" alt="next" />');
+        //adjust the vertical align of link-box1 boxes
         $thele = jQuery('div.link-boxes a.link-box1');
         $thele.each(function(t,val){
                 $the = jQuery('div.link-boxes a.link-box1:eq(' + t + ')');
@@ -67,6 +42,30 @@ function colInit() {
                         $the.css('margin-top','12px') :
                         $the.css('margin-top','19px');
         });
+}
+
+function divBgInit() {
+        //add the css and the markup divs necesary for the different backgrounds
+        cssString = '<style type="text/css">\r\n';
+        jQuery(imageAbbrev).each(function(t,val){
+                cssString += '#bg-container div.home' + t + ' {';
+		cssString += 'background-image: url(' + imageset.pathFolder + imageAbbrev[t].imgfile + ')';
+                cssString += '}\r\n';
+                //add the div necesary for the different backgrounds
+                jQuery('<div class="home' + t + '"></div>').appendTo('#bg-container').css('display','none');
+                //preload images
+                imgpreload = new Image();
+                imgpreload.src = imageset.pathFolder + imageAbbrev[t].imgfile;
+        });
+        cssString += '</style>';
+        jQuery(cssString).appendTo('head');
+        
+        //add class 'home0' to #bg-container
+        jQuery('#bg-container div.home0').css('display','block');
+        actual_slide_class = 'home0';
+        
+        //add #over-bg to #bg-container
+        jQuery('<div id="over-bg"></div>').appendTo('#bg-container');
 }
 
 function navInit() {
@@ -251,10 +250,14 @@ function ie6browser(){
 //----------------------------
 //jquery function that initiates when html is loaded
 jQuery(function () {
+        
+        //initiate the columcontent
+        colInit();
+        
         //construct and add the div for each background
         divBgInit();
         
-        //initiate the h2, and lines text
+        //initiate the h2, and lines text for the slide nav
         navText(0);
         
         //if the image slide contains more than 1 image navInit and rotate
@@ -266,14 +269,11 @@ jQuery(function () {
                 rotate_int= setInterval('rotate()', iteration);
         }
         
-        //initiate the columcontent
-        colInit();
+        //assign cufon font
+        assignCufon();
         
         //add interactivity
         interactInit();
-        
-        //assign cufon font
-        assignCufon();
                 
         //add date input field and validation functionality to tellus form
         tellusInit();
